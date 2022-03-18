@@ -1,14 +1,26 @@
+$(".dropdown-menu").on("click", function teamSearch(){
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    fetch("https://www.balldontlie.io/api/v1/teams/", requestOptions)
+        .then(function (response) {
+            console.log(response)
+            return response.json()
+        })
+        .then(function (result) {
+            let teamData = Object.values(result)
+            let teamNames = Object.values(teamData[teamData.length-2])
+            console.log(teamNames)
+            // testArr.push(...teamData)
+            // console.log(testArr)
+            // console.log(teamData[teamData.length-2])
 
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  
-  fetch("https://www.balldontlie.io/api/v1/teams", requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-
+            // console.log(result)
+        })
+        .catch(function (error) {console.log('error', error)    
+    });
+})
 
 
 // This function dynamically displays information onto our cards
