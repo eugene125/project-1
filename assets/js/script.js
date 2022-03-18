@@ -19,19 +19,24 @@ $(".dropdown-menu").on("click", function teamSearch(){
     });
 })
 
+// here I created an event listener for the search button. When the search button is clicked on we run the event searchPlayer
 $("#search-submit").on("click", function searchPlayer(){
 
+    //I then use the search URL to search for the player name
     var searchURL = "https://www.balldontlie.io/api/v1/players?search="
     
+    //I then akes the users input and put it into a variable
     var playerName = $("#search-entry").val()
-    var searchEntryString = [playerName]
+    // var searchEntryString = [playerName]
 
-    // let requestUserParam = jQuery.param(searchEntryString)
-    let requestURL = searchURL + searchEntryString
+    let requestUserParam = jQuery.param({ name: playerName.trim() })
+    console.log(requestUserParam)
+    //then append the users input to the url
+    let requestURL = searchURL + requestUserParam;
     console.log(requestURL)
     // save to local storage so next page can load data?
 
-
+    //and fetch the information
     fetch(requestURL)
         .then(response => response.text())
         .then(result => console.log(result))
@@ -42,7 +47,7 @@ $("#search-submit").on("click", function searchPlayer(){
 
 // This function dynamically displays information onto our cards
 function cardFront(){
-    console.log("am I running?")
+
     var cards = document.querySelectorAll('.card-body');  // this is what we will append scheduled games to in the for loop below
     console.log(cards);
    
