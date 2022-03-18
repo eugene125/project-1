@@ -12,11 +12,8 @@ $(".dropdown-menu").on("click", function teamSearch(){
             let teamData = Object.values(result)
             let teamNames = Object.values(teamData[teamData.length-2])
             console.log(teamNames)
-            // testArr.push(...teamData)
-            // console.log(testArr)
-            // console.log(teamData[teamData.length-2])
-
-            // console.log(result)
+            console.log(teamData[teamData.length-2])
+            console.log(result)
         })
         .catch(function (error) {console.log('error', error)    
     });
