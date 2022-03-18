@@ -29,7 +29,7 @@ function cardFront(){
     var cards = document.querySelectorAll('.card-body');  // this is what we will append scheduled games to in the for loop below
     console.log(cards);
    
-    for(i=0; i<6; i++){
+    for(i=0; i<cards.length; i++){
 
         var dayCard = moment().add(i, 'days').format('l');  // gives us next 5 days
         console.log(dayCard);
@@ -53,7 +53,6 @@ function cardFront(){
 }
 
 cardFront()
-
 
 
 
@@ -165,3 +164,6 @@ function teamStats(){
 
 
 teamStats()
+
+
+
