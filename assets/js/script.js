@@ -63,7 +63,3 @@ function cardFront(){
 }
 
 cardFront()
-
-
-
-
