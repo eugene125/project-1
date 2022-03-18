@@ -4,16 +4,287 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>Team Stats</title>
 </head>
 <body>
-    
+        
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+  
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Dallas Mavericks</h1>
+          <ul>
+              <li>Conference: West</li>
+              <li>Division: Southwest</li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">POS</th>
+            <th scope="col">Games</th>
+            <th scope="col">Points</th>
+            <th scope="col">FG</th>
+            <th scope="col">FG %</th>
+            <th scope="col">3P %</th>
+            <th scope="col">REB</th>
+            <th scope="col">AST</th>
+            <th scope="col">TO</th>
+            <th scope="col">PF</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>F</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+          
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>G</td>
+            <td>6</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>G</td>
+            <td>8</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">4</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>F</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>C</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">6</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>G</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">7</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>F</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">8</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>G</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">9</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>PG</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">10</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>C</td>
+            <td>5</td>
+            <td>43</td>
+            <td>4</td>
+            <td>5</td>
+            <td>65</td>
+            <td>45</td>
+            <td>23</td>
+            <td>32</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+
+
+    <div class = "container-fluid row">
+
+      
+        <div class="col cardPad">
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col cardPad">
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+ 
+  
+        <div class="col cardPad">
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col cardPad">
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+
+  
+</div>
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/javascript/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 
 </body>
 </html>
