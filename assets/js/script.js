@@ -19,10 +19,30 @@ $(".dropdown-menu").on("click", function teamSearch(){
     });
 })
 
+$("#search-submit").on("click", function searchPlayer(){
+
+    var searchURL = "https://www.balldontlie.io/api/v1/players?search="
+    
+    var playerName = $("#search-entry").val()
+    var searchEntryString = [playerName]
+
+    // let requestUserParam = jQuery.param(searchEntryString)
+    let requestURL = searchURL + searchEntryString
+    console.log(requestURL)
+    // save to local storage so next page can load data?
+
+
+    fetch(requestURL)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+         //move page to other index page?
+})
+
 
 // This function dynamically displays information onto our cards
 function cardFront(){
-
+    console.log("am I running?")
     var cards = document.querySelectorAll('.card-body');  // this is what we will append scheduled games to in the for loop below
     console.log(cards);
    
