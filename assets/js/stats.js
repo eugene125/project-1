@@ -1,15 +1,59 @@
 
+let teamSpecific;
+let conferencePg2;
+let divisionPg2;
 
 
 
-function teamHeader(){
+function getParams(){
+    var searchParamsArray = document.location.search.split('&')
+    console.log(searchParamsArray);
+
+    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
+    conferencePg2 = searchParamsArray[1].split('=').pop();
+    divisionPg2 = searchParamsArray[2].split('=').pop();
+    
+    console.log(teamSpecific);
+    console.log(conferencePg2);
+    console.log(divisionPg2);
+    teamHeader(teamSpecific, conferencePg2, divisionPg2)
+    // return(teamSpecific, conferencePg2, divisionPg2);
+
+}
+getParams()
+
+
+console.log(teamSpecific);
+console.log(conferencePg2);
+console.log(divisionPg2);
+
+
+
+
+
+function teamHeader(teamSpecific, conferencePg2, divisionPg2){
+    console.log('team header fired');
+    console.log(teamSpecific);
 
     let teamPg2 = document.getElementById('teamInfo');
+
     let teamHeader = document.createElement('h1');
+    teamHeader.textContent = teamSpecific;
+
     let teamUl = document.createElement('ul');
+
     let teamLi1 = document.createElement('li');
+    teamLi1.textContent = conferencePg2;
+
     let teamLi2 = document.createElement('li');
+    teamLi2.textContent = divisionPg2;
+
+    teamPg2.appendChild(teamHeader);
+    teamPg2.appendChild(teamUl);
+    teamUl.appendChild(teamLi1);
+    teamUl.appendChild(teamLi2);
 }
+
 
 
 
@@ -58,8 +102,8 @@ var player = [
 
 console.log(player);
 
-bigTable = document.getElementById('table')
-tableBody = document.getElementById('table-body')
+var bigTable = document.getElementById('table')
+var tableBody = document.getElementById('table-body')
 
 console.log(bigTable);
 console.log(tableBody);
@@ -121,3 +165,5 @@ function teamStats(){
 
 
 teamStats()
+
+
