@@ -43,10 +43,10 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     let teamUl = document.createElement('ul');
 
     let teamLi1 = document.createElement('li');
-    teamLi1.textContent = conferencePg2;
+    teamLi1.textContent = `Conference: ${conferencePg2}`;
 
     let teamLi2 = document.createElement('li');
-    teamLi2.textContent = divisionPg2;
+    teamLi2.textContent = `Division: ${divisionPg2}`;
 
     teamPg2.appendChild(teamHeader);
     teamPg2.appendChild(teamUl);
