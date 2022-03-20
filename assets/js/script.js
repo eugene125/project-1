@@ -75,25 +75,43 @@ $("#search-submit").on("click", function searchPlayer(event){
 
     //and fetch the information
     fetch(requestURL)
-        .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-         //move page to other index page?
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (result) {
+            let playerData = Object.values(result);
+            console.log(playerData)
+            console.log(playerData[0][0].id)       // Filter for the player's ID
+            let player_ids = playerData[0][0].id   // set a variable for the player ID
+    
+                //move page to other index page?                
+                // Append the player's ID
+            var playerUrl = "https://www.balldontlie.io/api/v1/season_averages?player_ids[]"
 
+            let playerSearch = jQuery.param({ "": player_ids})
+            console.log(playerSearch)
+            let playerSearchUrl = playerUrl + playerSearch;
 
-    // Filter for the player's ID
-    // set a variable for the player ID
-    // Append the player's ID
-    var playerUrl = "https://www.balldontlie.io/api/v1/season_averages?player_ids[]"
+            fetch(playerSearchUrl)
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (result) {
+                let playerStats = Object.values(result);
+                console.log(playerStats);
+                console.log(playerStats[0][0].ast);
+                console.log(playerStats[0][0].blk);
+                console.log(playerStats[0][0].fg3_pct);
+                console.log(playerStats[0][0].fg_pct);
+                console.log(playerStats[0][0].games_played);
+                console.log(playerStats[0][0].pf)
+                console.log(playerStats[0][0].pts)
+                console.log(playerStats[0][0].reb)
+                console.log(playerStats[0][0].stl)
+                console.log(playerStats[0][0].turnover)
 
-    let playerSearch = jQuery.param({ "": player_ids})
-    console.log(playerSearch)
-    let playerSearchUrl = playerUrl + playerSearch;
-
-    fetch(playerSearchUrl)
-        .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        })
+    })
 })
 
 
