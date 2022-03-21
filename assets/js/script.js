@@ -28,7 +28,7 @@ $(".dropdown-item").on("click", function teamSearch(){
             divisionPg2 = teamData[4];
             teamSpecific = teamData[5];
 
-            location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2);
+            location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2+'&teamAbbr='+teamAbbr);
             // // teamHeader(teamSpecific, conferencePg2, divisionPg2);    
         })        
         .catch(function (error) {console.log('error', error);  
