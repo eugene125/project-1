@@ -150,42 +150,42 @@ fetchSeasonStats()
 
 
 // practice object to simulate the function we will need
-var player = [
-    {
-        number : 77,
-        firstName : 'Luca',
-        lastName : 'Doncic',
-        stats : {
-            games : 50,
-            pos : 'PG',
-            points : 33,
-            fG : 12,
-            fGperc : 34,
-            threePtPerc : 28,
-            reb : 9,
-            ast : 12,
-            to : 3,
-            pf : 3,
-        }
-    },
-    {
-        number : 44,
-        firstName : 'Davis',
-        lastName : 'Bertanas',
-        stats : {
-            games : 43,
-            pos : 'F',
-            points : 26,
-            fG : 9,
-            fGperc : 32,
-            threePtPerc : 25,
-            reb : 10,
-            ast : 4,
-            to : 2,
-            pf : 4,
-        }
-    }
-]
+// var player = [
+//     {
+//         number : 77,
+//         firstName : 'Luca',
+//         lastName : 'Doncic',
+//         stats : {
+//             games : 50,
+//             pos : 'PG',
+//             points : 33,
+//             fG : 12,
+//             fGperc : 34,
+//             threePtPerc : 28,
+//             reb : 9,
+//             ast : 12,
+//             to : 3,
+//             pf : 3,
+//         }
+//     },
+//     {
+//         number : 44,
+//         firstName : 'Davis',
+//         lastName : 'Bertanas',
+//         stats : {
+//             games : 43,
+//             pos : 'F',
+//             points : 26,
+//             fG : 9,
+//             fGperc : 32,
+//             threePtPerc : 25,
+//             reb : 10,
+//             ast : 4,
+//             to : 2,
+//             pf : 4,
+//         }
+//     }
+// ]
 
 // function teamStats(){
 //     for( i=0; i<player.length; i++ ){
