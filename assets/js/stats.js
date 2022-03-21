@@ -3,11 +3,6 @@ let bigTable = $('#table')
 let tableBody = $('#table-body')
 let homePage = $('#homePage')
 
-homePage.on("click", function (event){
-    event.preventDefault();
-    location.assign("./index.html")
-})
-
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
