@@ -3,12 +3,15 @@ let bigTable = $('#table')
 let tableBody = $('#table-body')
 var teamAbbr3 = ""
 
+console.log(conferencePg2);
+
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
 
     teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
+    console.log(conferencePg2);
     divisionPg2 = searchParamsArray[2].split('=').pop();
     teamAbbr3 = searchParamsArray[3].split('=').pop();
     
@@ -16,6 +19,9 @@ function getParams(){
     // return(teamSpecific, conferencePg2, divisionPg2);
 }
 getParams()
+
+console.log(conferencePg2);
+
 
 function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     console.log('team header fired');
@@ -187,6 +193,7 @@ var player = [
     }
 ]
 
+
 // function teamStats(){
 //     for( i=0; i<player.length; i++ ){
 //         let tableRow = document.createElement('tr')
@@ -208,8 +215,40 @@ var player = [
 
 //         // appends each row to the body
 
+
+//         let fGoalPerc = document.createElement('td');
+//         fGoalPerc.textContent = player[i].stats.fGperc;
+
+//         let threePerc = document.createElement('td');
+//         threePerc.textContent = player[i].stats.threePtPerc
+
+//         let rebound = document.createElement('td');
+//         rebound.textContent = player[i].stats.reb;
+
+//         let assist = document.createElement('td');
+//         assist.textContent = player[i].stats.ast;
+
+//         let tOver = document.createElement('td');
+//         tOver.textContent = player[i].stats.to;
+
+//         let pFoul = document.createElement('td');
+//         pFoul.textContent = player[i].stats.pf;
+
+//         // appends each row to the body
+//         tableBody.appendChild(tableRow);
+//         tableRow.append(num, first, last, position, gp, pointsScored, fGoal, fGoalPerc, threePerc, rebound, assist, tOver, pFoul);
 //     }
 //     //appends body to the main table div
 //     table.appendChild(tableBody); 
 // }
-// teamStats()
+// teamStats() */
+
+// function team_schedule(){
+//     fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=c55e28baecdc43b59a80d237643bde43")
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+  
+//   }
+  
+//   team_schedule();
