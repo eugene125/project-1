@@ -1,4 +1,4 @@
-
+APIKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 // let teamSpecific;
 // let conferencePg2;
 // let divisionPg2;
@@ -35,19 +35,36 @@ $(".dropdown-item").on("click", function teamSearch(){
             console.log(result);
             console.log(teamData);
 
+            teamAbbr = teamData[1]
             teamSpecific = teamData[5];
             conferencePg2 = teamData[3];
             divisionPg2 = teamData[4];
             console.log(teamSpecific);
 
-            location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2);
-            console.log(teamSpecific, conferencePg2, divisionPg2);
-            // teamHeader(teamSpecific, conferencePg2, divisionPg2);
+            // location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2);
+            // console.log(teamSpecific, conferencePg2, divisionPg2);
+            // // teamHeader(teamSpecific, conferencePg2, divisionPg2);
             
-            teamStats();
-                
+            // teamStats();
+             console.log(teamAbbr)   
+        })        
+            .then(function (){
+            let newApi = "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/"
+            let requestApi = newApi + teamAbbr + "?" + APIKey
+            console.log(requestApi)
+
+            fetch(requestApi)
+                .then(function (response) {
+                    return response.json() })
+                .then(function (result) {
+                    let playersByTeam = Object.values(result)
+                    console.log(result)    })
+                .catch(function (error) {
+                    console.log('error', error);  
+                })
         })
         .catch(function (error) {console.log('error', error);  
+ 
     });
 })
 
