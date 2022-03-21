@@ -1,4 +1,4 @@
-
+APIKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 // let teamSpecific;
 // let conferencePg2;
 // let divisionPg2;
@@ -35,19 +35,36 @@ $(".dropdown-item").on("click", function teamSearch(){
             console.log(result);
             console.log(teamData);
 
+            teamAbbr = teamData[1]
             teamSpecific = teamData[5];
             conferencePg2 = teamData[3];
             divisionPg2 = teamData[4];
             console.log(teamSpecific);
 
-            location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2);
-            console.log(teamSpecific, conferencePg2, divisionPg2);
-            // teamHeader(teamSpecific, conferencePg2, divisionPg2);
+            // location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2);
+            // console.log(teamSpecific, conferencePg2, divisionPg2);
+            // // teamHeader(teamSpecific, conferencePg2, divisionPg2);
             
-            teamStats();
-                
+            // teamStats();
+             console.log(teamAbbr)   
+        })        
+            .then(function (){
+            let newApi = "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/"
+            let requestApi = newApi + teamAbbr + "?" + APIKey
+            console.log(requestApi)
+
+            fetch(requestApi)
+                .then(function (response) {
+                    return response.json() })
+                .then(function (result) {
+                    let playersByTeam = Object.values(result)
+                    console.log(result)    })
+                .catch(function (error) {
+                    console.log('error', error);  
+                })
         })
         .catch(function (error) {console.log('error', error);  
+ 
     });
 })
 
@@ -262,3 +279,105 @@ function teamStats(){
         table.appendChild(tableBody); //appends body to the main table div
         console.log('I fired!')
 }
+
+
+
+// Game Schedules ---------------------------------------------------------------------------------------------
+
+function getNextDay(date) {
+    /**
+     * Returns the formatted date for the day after
+     * the specified `date`.
+     */
+    var nextDay = new Date(date);
+    nextDay.setDate(nextDay.getDate() + 1);
+    return nextDay;
+  }
+  
+  //console.log(nextDay);
+  
+  function formatDate(date) {
+    /**
+     * Format the date in the format used for
+     * the API request.
+     */
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    return year + "-" + monthNames[month] + "-" + (day);
+  }
+  
+  // The 6 days we have to get the date for
+  var day1 = new Date();
+  var day2 = getNextDay(day1);
+  var day3 = getNextDay(day2);
+  var day4 = getNextDay(day3);
+  var day5 = getNextDay(day4);
+  var day6 = getNextDay(day5);
+  
+  
+  
+  // Create a list of the days
+  dates = [day1,day2,day3,day4,day5]
+  
+  /* dates.push(day1, day2, day3, day4, day5, day6) */
+  
+  console.log(dates);
+  
+  dates.forEach(function (date) {
+    // For each date we're going to make an API
+    // request to get the NBA games during
+    // that day.
+    console.log("Date: " + formatDate(date));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(date) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        }).then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            //console.log(entry.AwayTeam);
+            //console.log(entry.HomeTeam);
+            console.log(entry);
+            document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+  
+        });
+    });
+  });
+  
+  
+  // gets data of teams standings
+   function teams(){
+    fetch("https://api.sportsdata.io/v3/nba/scores/json/Standings/2022?key=c55e28baecdc43b59a80d237643bde43")
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+     document.getElementById("p2").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "\n\n";
+  }
+  
+  teams();
+  
+  
+  //gets each player on a team
+  function players_by_team(){
+    fetch("https://api.sportsdata.io/v3/nba/scores/json/Players/DAL?key=c55e28baecdc43b59a80d237643bde43")
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+  }
+  
+  players_by_team();
+  
+  // gets player data by player ID which we get from the player_by_team function
+  function player_stat(){
+    fetch("https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2022?key=c55e28baecdc43b59a80d237643bde43")
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+  }
+  
+  player_stat();
