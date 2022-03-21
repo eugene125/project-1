@@ -39,9 +39,10 @@ $(".dropdown-item").on("click", function teamSearch(){
 $("#search-submit").on("click", function searchPlayer(event){
     event.preventDefault();
     let playerSearchUrl = "https://www.balldontlie.io/api/v1/players?search";
-    let playerName = $("#search-entry").val();
+    let playerName = $("#search-entry").val().toUpperCase();
     let userParam = jQuery.param({ "": playerName});
     let playerSearchFetchUrl = playerSearchUrl + userParam;
+    console.log(playerName);
 
     fetch(playerSearchFetchUrl)
         .then(function (response) {
@@ -67,23 +68,109 @@ $("#search-submit").on("click", function searchPlayer(event){
                 
                 // Set variables equal to the following stats so we can append them when searching for a player?
                 console.log(playerStats);
-                console.log(playerStats[0][0].ast);
-                console.log(playerStats[0][0].blk);
-                console.log(playerStats[0][0].fg3_pct);
-                console.log(playerStats[0][0].fg_pct);
-                console.log(playerStats[0][0].games_played);
-                console.log(playerStats[0][0].pf)
-                console.log(playerStats[0][0].pts)
-                console.log(playerStats[0][0].reb)
-                console.log(playerStats[0][0].stl)
-                console.log(playerStats[0][0].turnover)
+
+                var gamesPlayer = playerStats[0][0].games_played;
+                var pointsPlayer = playerStats[0][0].pts;
+                var astPlayer = playerStats[0][0].ast;
+                var rebPlayer = playerStats[0][0].reb;
+                var stlPlayer = playerStats[0][0].stl;
+                var fgPercPlayer = playerStats[0][0].fg_pct;
+                var threePercPlayer = playerStats[0][0].fg3_pct;
+                var ftPercPlayer = playerStats[0][0].ft_pct;
+                var toPlayer = playerStats[0][0].turnover;
+                var pfPlayer = playerStats[0][0].pf;
+
+                
+                var playerStatDiv = document.getElementById('playerTable1')
+                var tablePg1 = document.createElement('table') //create table
+                tablePg1.classList.add('table')
+                var tableHead = document.createElement('thead') //creates head for the table
+                var tableRowHead = document.createElement('tr')
+                
+                var cat1 = document.createElement('th') //creates categories
+                cat1.setAttribute('scope', 'col')
+                cat1.textContent = 'Name' //text for player becomes user input (figure out capitalization)
+                var cat2 = document.createElement('th')
+                cat2.setAttribute('scope', 'col')
+                cat2.textContent = 'Games'
+                var cat3 = document.createElement('th')
+                cat3.setAttribute('scope', 'col')
+                cat3.textContent = 'Points'
+                var cat4 = document.createElement('th')
+                cat4.setAttribute('scope', 'col')
+                cat4.textContent = 'Ast'
+                var cat5 = document.createElement('th')
+                cat5.setAttribute('scope', 'col')
+                cat5.textContent = 'Reb'
+                var cat6 = document.createElement('th')
+                cat6.setAttribute('scope', 'col')
+                cat6.textContent = 'Stl'
+                var cat7 = document.createElement('th')
+                cat7.setAttribute('scope', 'col')
+                cat7.textContent = 'FG %'
+                var cat8 = document.createElement('th')
+                cat8.setAttribute('scope', 'col')
+                cat8.textContent = '3 PT %'
+                var cat9 = document.createElement('th')
+                cat9.setAttribute('scope', 'col')
+                cat9.textContent = 'FT %'
+                var cat10 = document.createElement('th')
+                cat10.setAttribute('scope', 'col')
+                cat10.textContent = 'TO'
+                var cat11 = document.createElement('th')
+                cat1.setAttribute('scope', 'col')
+                cat11.textContent = 'PF'
+                
+                var tablePg1Body = document.createElement('tbody')
+                var row2 = document.createElement('tr')
+                var dataName = document.createElement('td')
+                dataName.textContent = playerName
+                var dataGame = document.createElement('td')
+                dataGame.textContent = gamesPlayer
+                var dataPoints = document.createElement('td')
+                dataPoints.textContent = pointsPlayer
+                var dataAst = document.createElement('td')
+                dataAst.textContent = astPlayer
+                var dataReb = document.createElement('td')
+                dataReb.textContent = rebPlayer
+                var dataStl = document.createElement('td')
+                dataStl.textContent = stlPlayer
+                var dataFgPerc = document.createElement('td')
+                dataFgPerc.textContent = fgPercPlayer
+                var dataThreePerc = document.createElement('td')
+                dataThreePerc.textContent = threePercPlayer
+                var dataFtPerc = document.createElement('td')
+                dataFtPerc.textContent = ftPercPlayer
+                var dataTo = document.createElement('td')
+                dataTo.textContent = toPlayer
+                var dataPf = document.createElement('td')
+                dataPf.textContent = pfPlayer
+
+                //append table to div
+                playerStatDiv.append(tablePg1)
+                //append table head to table
+                tablePg1.append(tableHead)
+                // append tablerow to tablehead
+                tableHead.append(tableRowHead)
+                //append content to tablerow
+                tableRowHead.append(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10,cat11)
+                //append tablebody to table
+                tablePg1.append(tablePg1Body)
+                //append tablerow to tablebody
+                tablePg1Body.append(row2)
+                //append data to table row
+                row2.append(dataName,dataGame,dataPoints,dataAst,dataReb,dataStl,dataFgPerc,dataThreePerc,dataFtPerc,dataTo,dataPf)
+
         })
     })
 })
 
+
+
 // This function dynamically displays information onto our cards
 function cardFront(){  
     for(i=0; i<cards.length; i++){
+        
         // gives us next 5 days
         let dayCard = moment().add(i, 'days').format('l');
         
@@ -92,50 +179,12 @@ function cardFront(){
         cardDate.classList.add('card-title', 'center');
         cardDate.textContent = dayCard;
 
-        // ul (can add class for styling)
-        let cardUl = document.createElement('ul');
-        cardUl.classList.add('left')
-
-        // will be a scheduled game for that day
-        let cardList1 = document.createElement('li');
-        cardList1.classList.add('card-text')
-        cardList1.textContent = 'This is a test';
-
-        //everything is appended
+        //date is appended
         cards[i].appendChild(cardDate);
     }
 }
 cardFront()
 
-// function teamHeader(){
-
-//     //declares variable for jumbotron div
-//     var teamPg2 = document.getElementById('teamInfo');
-
-//     //creates h1 content
-//     var teamTitle = document.createElement('h1');
-//     teamHeader.textContent = teamSpecific;
-
-//     //creates ul
-//     var teamUl = document.createElement('ul');
-
-//     //creates Li
-//     var teamLi1 = document.createElement('li');
-//     teamLi1.textContent = conferencePg2;
-
-//     //creates Li
-//     var teamLi2 = document.createElement('li');
-//     teamLi2.textContent = divisionPg2;
-
-//     //appends h1
-//     teamPg2.appendChild(teamTitle);
-//     //appends ul
-//     teamPg2.appendChild(teamUl);
-//     //appends Li
-//     teamUl.appendChild(teamLi1);
-//     //appends Li
-//     teamUl.appendChild(teamLi2);
-// }
 
 // Game Schedules ---------------------------------------------------------------------------------------------
 
@@ -288,29 +337,29 @@ only6day(day6);
 
 //This is a test for loop, I tried to get these cards to display in a for loop, but kept throwing error on the appendChild line. We may want to see if we can get it to work in the loop. But it works great like it is.
 
-for (i=0; i<cards.length;i++){
-    // For each date we're going to make an API request to get the NBA game for specific day
-    // console.log("Date: " + formatDate(dates[i]));
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(dates[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-        // Udates the code
-        data.forEach(function (entry) {
-            // console.log(entry.AwayTeam);
-            // console.log(entry.HomeTeam);
-            let away = entry.AwayTeam
-            let home = entry.HomeTeam
-            // console.log(entry);
-            // console.log(cards[0])
-            let test = document.createElement('p')
-            test.classList.add('center')
-            test.innerHTML = `${away} vs ${home}`
-            cards.appendChild(test)
-        });
-    });
-}
+// for (i=0; i<cards.length;i++){
+//     // For each date we're going to make an API request to get the NBA game for specific day
+//     // console.log("Date: " + formatDate(dates[i]));
+//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(dates[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//         // Udates the code
+//         data.forEach(function (entry) {
+//             // console.log(entry.AwayTeam);
+//             // console.log(entry.HomeTeam);
+//             let away = entry.AwayTeam
+//             let home = entry.HomeTeam
+//             // console.log(entry);
+//             // console.log(cards[0])
+//             let test = document.createElement('p')
+//             test.classList.add('center')
+//             test.innerHTML = `${away} vs ${home}`
+//             cards.appendChild(test)
+//         });
+//     });
+// }
 
 dates.forEach(function (date) {
     // For each date we're going to make an API request to get the NBA games during that day.
