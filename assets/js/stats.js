@@ -2,18 +2,24 @@ let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 let bigTable = $('#table')
 let tableBody = $('#table-body')
 
+console.log(conferencePg2);
+
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
 
     teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
+    console.log(conferencePg2);
     divisionPg2 = searchParamsArray[2].split('=').pop();
     
     teamHeader(teamSpecific, conferencePg2, divisionPg2)
     // return(teamSpecific, conferencePg2, divisionPg2);
 }
 getParams()
+
+console.log(conferencePg2);
+
 
 function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     console.log('team header fired');
@@ -107,7 +113,7 @@ var player = [
     }
 ]
 
-function teamStats(){
+/* function teamStats(){
     for( i=0; i<player.length; i++ ){
         let tableRow = document.createElement('tr')
 
@@ -157,10 +163,10 @@ function teamStats(){
     //appends body to the main table div
     table.appendChild(tableBody); 
 }
-teamStats()
+teamStats() */
 
 function team_schedule(){
-    fetch("https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2022?key=c55e28baecdc43b59a80d237643bde43")
+    fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=c55e28baecdc43b59a80d237643bde43")
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
