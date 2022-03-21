@@ -56,7 +56,7 @@ $("#search-submit").on("click", function searchPlayer(event){
             let playerAveragesUrl = "https://www.balldontlie.io/api/v1/season_averages?player_ids[]"
             let playerAveragesParam = jQuery.param({ "": player_ids})
             let playerAveragesFetchUrl = playerAveragesUrl + playerAveragesParam;
-            console.log(playerAveragesFetchUrl)
+            // console.log(playerAveragesFetchUrl)
 
             fetch(playerAveragesFetchUrl)
             .then(function (response) {
@@ -66,17 +66,17 @@ $("#search-submit").on("click", function searchPlayer(event){
                 let playerStats = Object.values(result);
                 
                 // Set variables equal to the following stats so we can append them when searching for a player?
-                console.log(playerStats);
-                console.log(playerStats[0][0].ast);
-                console.log(playerStats[0][0].blk);
-                console.log(playerStats[0][0].fg3_pct);
-                console.log(playerStats[0][0].fg_pct);
-                console.log(playerStats[0][0].games_played);
-                console.log(playerStats[0][0].pf)
-                console.log(playerStats[0][0].pts)
-                console.log(playerStats[0][0].reb)
-                console.log(playerStats[0][0].stl)
-                console.log(playerStats[0][0].turnover)
+                // console.log(playerStats);
+                // console.log(playerStats[0][0].ast);
+                // console.log(playerStats[0][0].blk);
+                // console.log(playerStats[0][0].fg3_pct);
+                // console.log(playerStats[0][0].fg_pct);
+                // console.log(playerStats[0][0].games_played);
+                // console.log(playerStats[0][0].pf)
+                // console.log(playerStats[0][0].pts)
+                // console.log(playerStats[0][0].reb)
+                // console.log(playerStats[0][0].stl)
+                // console.log(playerStats[0][0].turnover)
         })
     })
 })
@@ -168,7 +168,7 @@ let day5 = getNextDay(day4);
 let day6 = getNextDay(day5);
 
 // Create a list of the days
-dates = [day1,day2,day3,day4,day5,day6]  
+let dates = [day1,day2,day3,day4,day5,day6]  
 // console.log(dates);
 
 // For each date we're going to make an API request to get the NBA game for specific day
@@ -369,25 +369,3 @@ dates.forEach(function (date) {
 //   }
   
 //   player_stat();
-
-
-//   function only1day (day1) {
-//     // For each date we're going to make an API
-//     // request to get the NBA games during
-//     // that day.
-//     console.log("Date: " + formatDate(day1));
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             //console.log(entry.AwayTeam);
-//             //console.log(entry.HomeTeam);
-//             console.log(entry);
-//             document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
-  
-//         });
-//     });
-//   }
