@@ -15,4 +15,18 @@ img{
 .cardPad {
     padding-bottom: 15px;
     padding-top: 15px;
+    /* background-color: #17408B; */
+}
+
+.cardCss{
+    background-color: #17408B;
+    color: white;
+}
+
+.jumbo{
+    background-color: black;
+}
+
+.center{
+    text-align: center;
 }

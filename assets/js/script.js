@@ -1,3 +1,5 @@
+var cards = document.querySelectorAll('.card-body');
+
 APIKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 // let teamSpecific;
 // let conferencePg2;
@@ -136,15 +138,15 @@ $("#search-submit").on("click", function searchPlayer(event){
 // This function dynamically displays information onto our cards
 function cardFront(){
 
-    var cards = document.querySelectorAll('.card-body');  // this is what we will append scheduled games to in the for loop below
+    // var cards = document.querySelectorAll('.card-body');  // this is what we will append scheduled games to in the for loop below
     console.log(cards);
    
     for(i=0; i<cards.length; i++){
 
         var dayCard = moment().add(i, 'days').format('l');  // gives us next 5 days
         
-        var cardDate = document.createElement('h5');   // header
-        cardDate.classList.add('card-title');
+        var cardDate = document.createElement('h3');   // header
+        cardDate.classList.add('card-title', 'center');
         cardDate.textContent = dayCard;
 
         var cardUl = document.createElement('ul');  // ul (can add class for styling)
@@ -155,8 +157,8 @@ function cardFront(){
         cardList1.textContent = 'This is a test';
 
         cards[i].appendChild(cardDate);    //everything is appended
-        cards[i].appendChild(cardUl);
-        cardUl.appendChild(cardList1);
+        // cards[i].appendChild(cardUl);
+        // cardUl.appendChild(cardList1);
 
     }
 }
@@ -321,11 +323,229 @@ function getNextDay(date) {
   
   
   // Create a list of the days
-  dates = [day1,day2,day3,day4,day5]
+  dates = [day1,day2,day3,day4,day5,day6]
   
   /* dates.push(day1, day2, day3, day4, day5, day6) */
   
   console.log(dates);
+  console.log(cards);
+
+  function only1day (day1) {
+    // For each date we're going to make an API
+    // request to get the NBA game for specific day
+    console.log("Date: " + formatDate(day1));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            console.log(entry.AwayTeam);
+            console.log(entry.HomeTeam);
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            console.log(entry);
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            console.log(cards[0])
+            var test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[0].appendChild(test)
+  
+        });
+    });
+  }
+  only1day(day1);
+
+  
+  function only2day (day2) {
+    // For each date we're going to make an API
+    // request to get the NBA game for specific day
+    console.log("Date: " + formatDate(day2));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day2) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            console.log(entry.AwayTeam);
+            console.log(entry.HomeTeam);
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            console.log(entry);
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            console.log(cards[1])
+            var test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[1].appendChild(test)
+  
+        });
+    });
+  }
+  only2day(day2);
+
+  
+  function only3day (day3) {
+    // For each date we're going to make an API
+    // request to get the NBA game for specific day
+    console.log("Date: " + formatDate(day3));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day3) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            console.log(entry.AwayTeam);
+            console.log(entry.HomeTeam);
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            console.log(entry);
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            console.log(cards[2])
+            var test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[2].appendChild(test)
+  
+        });
+    });
+  }
+  only3day(day3);
+
+
+  function only4day (day4) {
+    // For each date we're going to make an API
+    // request to get the NBA game for specific day
+    console.log("Date: " + formatDate(day4));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day4) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            console.log(entry.AwayTeam);
+            console.log(entry.HomeTeam);
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            console.log(entry);
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            console.log(cards[2])
+            var test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[3].appendChild(test)
+  
+        });
+    });
+  }
+  only4day(day4);
+
+
+  function only5day (day5) {
+    // For each date we're going to make an API
+    // request to get the NBA game for specific day
+    console.log("Date: " + formatDate(day5));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day5) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            console.log(entry.AwayTeam);
+            console.log(entry.HomeTeam);
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            console.log(entry);
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            console.log(cards[2])
+            var test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[4].appendChild(test)
+  
+        });
+    });
+  }
+  only5day(day5);
+
+
+  function only6day (day6) {
+    // For each date we're going to make an API
+    // request to get the NBA game for specific day
+    console.log("Date: " + formatDate(day6));
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day6) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            console.log(entry.AwayTeam);
+            console.log(entry.HomeTeam);
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            console.log(entry);
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            console.log(cards[2])
+            var test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[5].appendChild(test)
+  
+        });
+    });
+  }
+  only6day(day6);
+
+  
+  
+  
+  
+  
+  
+  
+  //This is a test for loop, I tried to get these cards to display in a for loop
+  //But kept throwing error on the appendChild line. We may want to see if we can 
+  //get it to work in the loop. But it works great like it is.
+  
+  for (i=0; i<cards.length;i++){
+
+    
+        // For each date we're going to make an API
+        // request to get the NBA game for specific day
+        console.log("Date: " + formatDate(dates[i]));
+        fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(dates[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+            // Udates the code
+            data.forEach(function (entry) {
+                console.log(entry.AwayTeam);
+                console.log(entry.HomeTeam);
+                let away = entry.AwayTeam
+                let home = entry.HomeTeam
+                console.log(entry);
+                // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+                console.log(cards[0])
+                var test = document.createElement('p')
+                test.classList.add('center')
+                test.innerHTML = `${away} vs ${home}`
+                cards.appendChild(test)
+
+                
+      
+            });
+        });
+      }
+  
+
   
   dates.forEach(function (date) {
     // For each date we're going to make an API
@@ -341,7 +561,14 @@ function getNextDay(date) {
             //console.log(entry.AwayTeam);
             //console.log(entry.HomeTeam);
             console.log(entry);
-            document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+            // console.log(entry.AwayTeam)
+            let schedule = Object.values(entry);
+            console.log(schedule)
+            console.log(schedule[6])
+            console.log(schedule[7])
+            console.log(day1)
+            // document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+
   
         });
     });
@@ -349,35 +576,59 @@ function getNextDay(date) {
   
   
   // gets data of teams standings
-   function teams(){
-    fetch("https://api.sportsdata.io/v3/nba/scores/json/Standings/2022?key=c55e28baecdc43b59a80d237643bde43")
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-     document.getElementById("p2").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "\n\n";
-  }
+//    function teams(){
+//     fetch("https://api.sportsdata.io/v3/nba/scores/json/Standings/2022?key=c55e28baecdc43b59a80d237643bde43")
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+//      document.getElementById("p2").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "\n\n";
+//   }
   
-  teams();
+//   teams();
   
   
   //gets each player on a team
-  function players_by_team(){
-    fetch("https://api.sportsdata.io/v3/nba/scores/json/Players/DAL?key=c55e28baecdc43b59a80d237643bde43")
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+//   function players_by_team(){
+//     fetch("https://api.sportsdata.io/v3/nba/scores/json/Players/DAL?key=c55e28baecdc43b59a80d237643bde43")
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
   
-  }
+//   }
   
-  players_by_team();
+//   players_by_team();
   
-  // gets player data by player ID which we get from the player_by_team function
-  function player_stat(){
-    fetch("https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2022?key=c55e28baecdc43b59a80d237643bde43")
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+//   // gets player data by player ID which we get from the player_by_team function
+//   function player_stat(){
+//     fetch("https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2022?key=c55e28baecdc43b59a80d237643bde43")
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
   
-  }
+//   }
   
-  player_stat();
+//   player_stat();
+
+
+//   function only1day (day1) {
+//     // For each date we're going to make an API
+//     // request to get the NBA games during
+//     // that day.
+//     console.log("Date: " + formatDate(day1));
+//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//         // Udates the code
+//         data.forEach(function (entry) {
+//             //console.log(entry.AwayTeam);
+//             //console.log(entry.HomeTeam);
+//             console.log(entry);
+//             document.getElementById("p1").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "Time: "+ entry.DateTime + "\n\n";
+  
+//         });
+//     });
+//   }
+
+//   only1day(day1);
