@@ -9,304 +9,121 @@
     <title>Team Stats</title>
 </head>
 <body>
-        
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" data-nba-id="1" href="#">Atlanta Hawks</a>
-                  <a class="dropdown-item" data-nba-id="2" href="#">Boston Celtics</a>
-                  <a class="dropdown-item" data-nba-id="3" href="#">Brooklyn Nets</a>
-                  <a class="dropdown-item" data-nba-id="4" href="#">Charlotte Hornets</a>
-                  <a class="dropdown-item" data-nba-id="5" href="#">Chicago Bulls</a>
-                  <a class="dropdown-item" data-nba-id="6" href="#">Cleveland Cavaliers</a>
-                  <a class="dropdown-item" data-nba-id="7" href="#">Dallas Mavericks</a>
-                  <a class="dropdown-item" data-nba-id="8" href="#">Denver Nuggets</a>
-                  <a class="dropdown-item" data-nba-id="9" href="#">Detroit Pistons</a>
-                  <a class="dropdown-item" data-nba-id="10" href="#">Golden State Warriors</a>
-                  <a class="dropdown-item" data-nba-id="11" href="#">Houston Rockets</a>
-                  <a class="dropdown-item" data-nba-id="12" href="#">Indiana Pacers</a>
-                  <a class="dropdown-item" data-nba-id="13" href="#">Los Angeles Clippers</a>
-                  <a class="dropdown-item" data-nba-id="14" href="#">Los Angeles Lakers</a>
-                  <a class="dropdown-item" data-nba-id="15" href="#">Memphis Grizzlies</a>
-                  <a class="dropdown-item" data-nba-id="16" href="#">Miami Heat</a>
-                  <a class="dropdown-item" data-nba-id="17" href="#">Milwaukee Bucks</a>
-                  <a class="dropdown-item" data-nba-id="18" href="#">Minnesota Timberwolves</a>
-                  <a class="dropdown-item" data-nba-id="19" href="#">New Orleans Pelicans</a>
-                  <a class="dropdown-item" data-nba-id="20" href="#">New York Knicks</a>
-                  <a class="dropdown-item" data-nba-id="21" href="#">Oklahoma City Thunder</a>
-                  <a class="dropdown-item" data-nba-id="22" href="#">Orlando Magic</a>
-                  <a class="dropdown-item" data-nba-id="23" href="#">Philadelphia 76ers</a>
-                  <a class="dropdown-item" data-nba-id="24" href="#">Phoenix Suns</a>
-                  <a class="dropdown-item" data-nba-id="25" href="#">Portland Trailblazers</a>
-                  <a class="dropdown-item" data-nba-id="26" href="#">Sacramento Kings</a>
-                  <a class="dropdown-item" data-nba-id="27" href="#">San Antonio Spurs</a>
-                  <a class="dropdown-item" data-nba-id="28" href="#">Toronto Raptors</a>
-                  <a class="dropdown-item" data-nba-id="29" href="#">Utah Jazz</a>
-                  <a class="dropdown-item" data-nba-id="30" href="#">Washington Wizards</a>
-                </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" data-nba-id="1" href="#">Atlanta Hawks</a>
+                <a class="dropdown-item" data-nba-id="2" href="#">Boston Celtics</a>
+                <a class="dropdown-item" data-nba-id="3" href="#">Brooklyn Nets</a>
+                <a class="dropdown-item" data-nba-id="4" href="#">Charlotte Hornets</a>
+                <a class="dropdown-item" data-nba-id="5" href="#">Chicago Bulls</a>
+                <a class="dropdown-item" data-nba-id="6" href="#">Cleveland Cavaliers</a>
+                <a class="dropdown-item" data-nba-id="7" href="#">Dallas Mavericks</a>
+                <a class="dropdown-item" data-nba-id="8" href="#">Denver Nuggets</a>
+                <a class="dropdown-item" data-nba-id="9" href="#">Detroit Pistons</a>
+                <a class="dropdown-item" data-nba-id="10" href="#">Golden State Warriors</a>
+                <a class="dropdown-item" data-nba-id="11" href="#">Houston Rockets</a>
+                <a class="dropdown-item" data-nba-id="12" href="#">Indiana Pacers</a>
+                <a class="dropdown-item" data-nba-id="13" href="#">Los Angeles Clippers</a>
+                <a class="dropdown-item" data-nba-id="14" href="#">Los Angeles Lakers</a>
+                <a class="dropdown-item" data-nba-id="15" href="#">Memphis Grizzlies</a>
+                <a class="dropdown-item" data-nba-id="16" href="#">Miami Heat</a>
+                <a class="dropdown-item" data-nba-id="17" href="#">Milwaukee Bucks</a>
+                <a class="dropdown-item" data-nba-id="18" href="#">Minnesota Timberwolves</a>
+                <a class="dropdown-item" data-nba-id="19" href="#">New Orleans Pelicans</a>
+                <a class="dropdown-item" data-nba-id="20" href="#">New York Knicks</a>
+                <a class="dropdown-item" data-nba-id="21" href="#">Oklahoma City Thunder</a>
+                <a class="dropdown-item" data-nba-id="22" href="#">Orlando Magic</a>
+                <a class="dropdown-item" data-nba-id="23" href="#">Philadelphia 76ers</a>
+                <a class="dropdown-item" data-nba-id="24" href="#">Phoenix Suns</a>
+                <a class="dropdown-item" data-nba-id="25" href="#">Portland Trailblazers</a>
+                <a class="dropdown-item" data-nba-id="26" href="#">Sacramento Kings</a>
+                <a class="dropdown-item" data-nba-id="27" href="#">San Antonio Spurs</a>
+                <a class="dropdown-item" data-nba-id="28" href="#">Toronto Raptors</a>
+                <a class="dropdown-item" data-nba-id="29" href="#">Utah Jazz</a>
+                <a class="dropdown-item" data-nba-id="30" href="#">Washington Wizards</a>
               </div>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li> -->
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
   
-      <div class="jumbotron jumbotron-fluid">
-        <div id="teamInfo" class="container">
-          <!-- <h1 class="display-4">Dallas Mavericks</h1>
-          <ul>
-              <li>Conference: West</li>
-              <li>Division: Southwest</li>
-          </ul> -->
-        </div>
+    <div class="jumbotron jumbotron-fluid">
+      <div id="teamInfo" class="container"></div>
+    </div>
+
+    <table id="table" class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">POS</th>
+          <!-- Minutes played? -->
+          <th scope="col">Games</th>
+          <th scope="col">Points</th>
+          <th scope="col">AST</th>
+          <th scope="col">REB</th>
+          <th scope="col">FGA</th>
+          <th scope="col">FG %</th>
+          <th scope="col">3PA</th>
+          <th scope="col">3P %</th>
+          <!-- Free throw stats? -->
+          <th scope="col">TO</th>
+          <th scope="col">PF</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+
+
+<!-- This section will contain the next four scheduled games -->
+    <div class = "container-fluid row">
+      <div class="col cardPad">
+          <div class="card">
+              <div class="card-body"></div>
+          </div>
       </div>
 
-      <table id="table" class="table">
+      <div class="col cardPad">
+          <div class="card">
+              <div class="card-body"></div>
+          </div>
+      </div>
 
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">POS</th>
-            <th scope="col">Games</th>
-            <th scope="col">Points</th>
-            <th scope="col">FG</th>
-            <th scope="col">FG %</th>
-            <th scope="col">3P %</th>
-            <th scope="col">REB</th>
-            <th scope="col">AST</th>
-            <th scope="col">TO</th>
-            <th scope="col">PF</th>
-          </tr>
-        </thead>
+      <div class="col cardPad">
+          <div class="card">
+              <div class="card-body"></div>
+          </div>
+      </div>
 
-        <tbody id="table-body">
-          <!-- <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>F</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-          
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>G</td>
-            <td>6</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>G</td>
-            <td>8</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">4</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>F</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">5</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>C</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">6</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>G</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">7</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>F</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">8</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>G</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">9</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>PG</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th scope="row">10</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>C</td>
-            <td>5</td>
-            <td>43</td>
-            <td>4</td>
-            <td>5</td>
-            <td>65</td>
-            <td>45</td>
-            <td>23</td>
-            <td>32</td>
-            <td>3</td>
-          </tr> -->
-        </tbody>
-
-      </table>
-
-
-
-    <div class = "container-fluid row">
-
-      
-        <div class="col cardPad">
-            <div class="card">
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col cardPad">
-            <div class="card">
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
- 
-  
-        <div class="col cardPad">
-            <div class="card">
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col cardPad">
-            <div class="card">
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
-
-  
-</div>
+      <div class="col cardPad">
+          <div class="card">
+              <div class="card-body"></div>
+          </div>
+      </div>
+    </div>
 
    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
