@@ -1,6 +1,7 @@
 let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 let bigTable = $('#table')
 let tableBody = $('#table-body')
+var teamAbbr3 = ""
 
 console.log(conferencePg2);
 
@@ -12,6 +13,7 @@ function getParams(){
     conferencePg2 = searchParamsArray[1].split('=').pop();
     console.log(conferencePg2);
     divisionPg2 = searchParamsArray[2].split('=').pop();
+    teamAbbr3 = searchParamsArray[3].split('=').pop();
     
     teamHeader(teamSpecific, conferencePg2, divisionPg2)
     // return(teamSpecific, conferencePg2, divisionPg2);
@@ -53,12 +55,35 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     teamUl.appendChild(teamLi2);
 }
 
-/*
 // Don't know exactly where this needs to be implemented, but this is what allows us to grab all the players part of a team and gather their season stats
-(function fetchSeasonStats(){
+function fetchSeasonStats(){
     let seasonStatsUrl = "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/"
+    
+    switch (teamAbbr3){
+        case "GSW":
+            teamAbbr = "GS"
+            break;
+        case "NOP":
+            teamAbbr = "NO"
+            break;
+        case "NYK":
+            teamAbbr = "NY"
+            break;
+        case "SAS":
+            teamAbbr = "SA"
+            break;
+        default:
+            teamAbbr = teamAbbr3
+    }
+                        
+                        
     let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey
 
+
+
+
+    console.log(teamAbbr)
+    console.log(seasonStatsFetchUrl)
     fetch(seasonStatsFetchUrl)
         .then(function (response) {
             return response.json() 
@@ -66,14 +91,69 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
         .then(function (result) {
             let playersByTeam = result
             console.log(playersByTeam) 
-            
-            // This is where we append the data on page2.html
-        })
+
+
+         function displayStats(){
+             
+            for(var i=0; i<= playersByTeam.length; i++ ){
+
+                let tableRow = document.createElement('tr');
+
+                let fullName = document.createElement('td');
+                fullName.textContent = playersByTeam[i].Name
+
+                let position = document.createElement('td');
+                position.textContent = playersByTeam[i].Position;
+
+                let gp = document.createElement('td');
+                gp.textContent = playersByTeam[i].Games
+                
+                let pointsScored = document.createElement('td');
+                pointsScored.textContent = playersByTeam[i].Points
+                
+                let assist = document.createElement('td');
+                assist.textContent = playersByTeam[i].Assists
+
+                let rebound = document.createElement('td');
+                rebound.textContent = playersByTeam[i].Rebounds
+
+                let fGoal = document.createElement('td');
+                fGoal.textContent = playersByTeam[i].FieldGoalsAttempted
+
+                let fGoalPerc = document.createElement('td');
+                fGoalPerc.textContent = playersByTeam[i].FieldGoalsPercentage
+
+                let threeAtt = document.createElement('td');
+                threeAtt.textContent = playersByTeam[i].ThreePointersAttempted
+
+                let threePerc = document.createElement('td');
+                threePerc.textContent = playersByTeam[i].ThreePointersAttempted
+                
+
+                let tOver = document.createElement('td');
+                tOver.textContent = playersByTeam[i].Turnovers
+
+                let pFoul = document.createElement('td');
+                pFoul.textContent = playersByTeam[i].PersonalFouls
+               
+
+                tableRow.append( fullName, position, gp, pointsScored, assist, rebound, fGoal, fGoalPerc,threeAtt, threePerc,  tOver, pFoul, );
+                tableBody.append(tableRow);
+            }
+        }  
+            displayStats();
+        // This is where we append the data on page2.html
+        }
+        )
         .catch(function (error) {
             console.log('error', error);  
         })
-    })
-*/
+    }
+
+fetchSeasonStats()
+
+
+
 
 // practice object to simulate the function we will need
 var player = [
@@ -113,64 +193,62 @@ var player = [
     }
 ]
 
-/* function teamStats(){
-    for( i=0; i<player.length; i++ ){
-        let tableRow = document.createElement('tr')
 
-        let num = document.createElement('th');
-        num.textContent = player[i].number;
+// function teamStats(){
+//     for( i=0; i<player.length; i++ ){
+//         let tableRow = document.createElement('tr')
 
-        let first = document.createElement('td');
-        first.textContent = player[i].firstName;
+//         let num = document.createElement('th');
+//         num.textContent = player[i].number;
 
-        let last = document.createElement('td');
-        last.textContent = player[i].lastName
+//         let first = document.createElement('td');
+//         first.textContent = player[i].firstName;
 
-        let position = document.createElement('td');
-        position.textContent = player[i].stats.pos;
+//         let last = document.createElement('td');
+//         last.textContent = player[i].lastName
+
+//         let position = document.createElement('td');
+//         position.textContent = player[i].stats.pos;
        
-        let gp = document.createElement('td');
-        gp.textContent = player[i].stats.games;
+        
 
-        let pointsScored = document.createElement('td');
-        pointsScored.textContent = player[i].stats.points;
 
-        let fGoal = document.createElement('td');
-        fGoal.textContent = player[i].stats.fG;
+//         // appends each row to the body
 
-        let fGoalPerc = document.createElement('td');
-        fGoalPerc.textContent = player[i].stats.fGperc;
 
-        let threePerc = document.createElement('td');
-        threePerc.textContent = player[i].stats.threePtPerc
+//         let fGoalPerc = document.createElement('td');
+//         fGoalPerc.textContent = player[i].stats.fGperc;
 
-        let rebound = document.createElement('td');
-        rebound.textContent = player[i].stats.reb;
+//         let threePerc = document.createElement('td');
+//         threePerc.textContent = player[i].stats.threePtPerc
 
-        let assist = document.createElement('td');
-        assist.textContent = player[i].stats.ast;
+//         let rebound = document.createElement('td');
+//         rebound.textContent = player[i].stats.reb;
 
-        let tOver = document.createElement('td');
-        tOver.textContent = player[i].stats.to;
+//         let assist = document.createElement('td');
+//         assist.textContent = player[i].stats.ast;
 
-        let pFoul = document.createElement('td');
-        pFoul.textContent = player[i].stats.pf;
+//         let tOver = document.createElement('td');
+//         tOver.textContent = player[i].stats.to;
 
-        // appends each row to the body
-        tableBody.appendChild(tableRow);
-        tableRow.append(num, first, last, position, gp, pointsScored, fGoal, fGoalPerc, threePerc, rebound, assist, tOver, pFoul);
-    }
-    //appends body to the main table div
-    table.appendChild(tableBody); 
-}
-teamStats() */
+//         let pFoul = document.createElement('td');
+//         pFoul.textContent = player[i].stats.pf;
 
-function team_schedule(){
-    fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=c55e28baecdc43b59a80d237643bde43")
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+//         // appends each row to the body
+//         tableBody.appendChild(tableRow);
+//         tableRow.append(num, first, last, position, gp, pointsScored, fGoal, fGoalPerc, threePerc, rebound, assist, tOver, pFoul);
+//     }
+//     //appends body to the main table div
+//     table.appendChild(tableBody); 
+// }
+// teamStats() */
+
+// function team_schedule(){
+//     fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=c55e28baecdc43b59a80d237643bde43")
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
   
-  }
+//   }
   
-  team_schedule();
+//   team_schedule();
