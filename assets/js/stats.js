@@ -1,6 +1,12 @@
 let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 let bigTable = $('#table')
 let tableBody = $('#table-body')
+let homePage = $('#homePage')
+
+homePage.on("click", function (event){
+    event.preventDefault();
+    location.assign("./index.html")
+})
 
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
@@ -9,6 +15,9 @@ function getParams(){
     teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
     divisionPg2 = searchParamsArray[2].split('=').pop();
+    teamAbbr = searchParamsArray[3].split('=').pop();
+
+    console.log(teamAbbr);
     
     teamHeader(teamSpecific, conferencePg2, divisionPg2)
     // return(teamSpecific, conferencePg2, divisionPg2);
@@ -67,6 +76,7 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
             console.log('error', error);  
         })
     })
+fetchSeasonStats();
 */
 
 // practice object to simulate the function we will need
