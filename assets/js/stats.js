@@ -158,3 +158,13 @@ function teamStats(){
     table.appendChild(tableBody); 
 }
 teamStats()
+
+function team_schedule(){
+    fetch("https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2022?key=c55e28baecdc43b59a80d237643bde43")
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+  }
+  
+  team_schedule();
