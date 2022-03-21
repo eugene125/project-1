@@ -23,12 +23,12 @@ $(".dropdown-item").on("click", function teamSearch(){
         .then(function (result) {
             let teamData = Object.values(result);
             
-            teamAbbr = teamData[1];
+            teamAbbr3 = teamData[1];
             conferencePg2 = teamData[3];
             divisionPg2 = teamData[4];
             teamSpecific = teamData[5];
 
-            location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2+'&teamAbbr='+teamAbbr);
+            location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2+'&teamAbbr3='+teamAbbr3);
             // // teamHeader(teamSpecific, conferencePg2, divisionPg2);    
         })        
         .catch(function (error) {console.log('error', error);  

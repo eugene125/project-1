@@ -1,6 +1,7 @@
 let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 let bigTable = $('#table')
 let tableBody = $('#table-body')
+var teamAbbr3 = ""
 
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
@@ -9,7 +10,7 @@ function getParams(){
     teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
     divisionPg2 = searchParamsArray[2].split('=').pop();
-    teamAbbr = searchParamsArray[3].split('=').pop();
+    teamAbbr3 = searchParamsArray[3].split('=').pop();
     
     teamHeader(teamSpecific, conferencePg2, divisionPg2)
     // return(teamSpecific, conferencePg2, divisionPg2);
@@ -51,7 +52,29 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
 // Don't know exactly where this needs to be implemented, but this is what allows us to grab all the players part of a team and gather their season stats
 function fetchSeasonStats(){
     let seasonStatsUrl = "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/"
+    
+    switch (teamAbbr3){
+        case "GSW":
+            teamAbbr = "GS"
+            break;
+        case "NOP":
+            teamAbbr = "NO"
+            break;
+        case "NYK":
+            teamAbbr = "NY"
+            break;
+        case "SAS":
+            teamAbbr = "SA"
+            break;
+        default:
+            teamAbbr = teamAbbr3
+    }
+                        
+                        
     let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey
+
+
+
 
     console.log(teamAbbr)
     console.log(seasonStatsFetchUrl)
