@@ -208,146 +208,146 @@ function formCalendar(){
 function getNextDay(date) {
     let nextDay = new Date(date);
     console.log(nextDay);
-    // nextDay.setDate(nextDay.getDate() + 1);
-    // return nextDay;
+    nextDay.setDate(nextDay.getDate() + 1);
+    return nextDay;
 }
 
 // // This function reformats the date that the API recognizes
-// function formatDate(date) {
-//     const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-//         "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-//     let day = date.getDate();
-//     let month = date.getMonth();
-//     let year = date.getFullYear();
-//     return year + "-" + monthNames[month] + "-" + (day);
-// }
+function formatDate(date) {
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    return year + "-" + monthNames[month] + "-" + (day);
+}
   
-// // The 6 days we have to get the date for
-// let day1 = new Date();
-// let day2 = getNextDay(day1);
-// let day3 = getNextDay(day2);
-// let day4 = getNextDay(day3);
-// let day5 = getNextDay(day4);
-// let day6 = getNextDay(day5);
+// The 6 days we have to get the date for
+let day1 = new Date();
+let day2 = getNextDay(day1);
+let day3 = getNextDay(day2);
+let day4 = getNextDay(day3);
+let day5 = getNextDay(day4);
+let day6 = getNextDay(day5);
 
-// // Create a list of the days
-// let dates = [day1,day2,day3,day4,day5,day6]  
-// // console.log(dates);
+// Create a list of the days
+let dates = [day1,day2,day3,day4,day5,day6]  
+// console.log(dates);
 
-// // For each date we're going to make an API request to get the NBA game for specific day
-// function only1day (day1) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[0].appendChild(test)
-//         });
-//     });
-// }
-// only1day(day1);
+// For each date we're going to make an API request to get the NBA game for specific day
+function only1day (day1) {
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            let test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[0].appendChild(test)
+        });
+    });
+}
+only1day(day1);
 
-// function only2day (day2) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day2) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[1].appendChild(test)
-//         });
-//     });
-// }
-// only2day(day2);
+function only2day (day2) {
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day2) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            let test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[1].appendChild(test)
+        });
+    });
+}
+only2day(day2);
 
-// function only3day(day3) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day3) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[2].appendChild(test)
-//         });
-//     });
-// }
-// only3day(day3);
+function only3day(day3) {
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day3) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            let test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[2].appendChild(test)
+        });
+    });
+}
+only3day(day3);
 
-// function only4day (day4) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day4) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[3].appendChild(test)
-//         });
-//     });
-// }
-// only4day(day4);
+function only4day (day4) {
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day4) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            let test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[3].appendChild(test)
+        });
+    });
+}
+only4day(day4);
 
-// function only5day (day5) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day5) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[4].appendChild(test)
-//         });
-//     });
-// }
-// only5day(day5);
+function only5day (day5) {
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day5) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            let test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[4].appendChild(test)
+        });
+    });
+}
+only5day(day5);
 
-// function only6day (day6) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day6) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[5].appendChild(test)
-//         });
-//     });
-// }
-// only6day(day6);
+function only6day (day6) {
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day6) + '?key=c55e28baecdc43b59a80d237643bde43')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        // Udates the code
+        data.forEach(function (entry) {
+            let away = entry.AwayTeam
+            let home = entry.HomeTeam
+            let test = document.createElement('p')
+            test.classList.add('center')
+            test.innerHTML = `${away} vs ${home}`
+            cards[5].appendChild(test)
+        });
+    });
+}
+only6day(day6);
 
 // //This is a test for loop, I tried to get these cards to display in a for loop, but kept throwing error on the appendChild line. We may want to see if we can get it to work in the loop. But it works great like it is.
 
