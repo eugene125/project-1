@@ -352,25 +352,25 @@ function formCalendar(){
 //     });
 // }
 
-// // dates.forEach(function (date) {
-// //     // For each date we're going to make an API request to get the NBA games during that day.
-// //     // console.log("Date: " + formatDate(i));
-// //     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(date) + '?key=c55e28baecdc43b59a80d237643bde43')
-// //         .then(function (response) {
-// //             return response.json();
-// //         })
-// //         .then(function (result) {
-// //             // Updates the code
-// //         result.forEach(function (entry) {
-// //             //console.log(entry.AwayTeam);
-// //             //console.log(entry.HomeTeam);
-// //             // console.log(entry);
-// //             // console.log(entry.AwayTeam)
-// //             let schedule = Object.values(entry);
-// //             // console.log(schedule)
-// //             // console.log(schedule[6])
-// //             // console.log(schedule[7])
-// //             // console.log(day1)
-// //         });
-// //     });
-// // });
+// dates.forEach(function (date) {
+//     // For each date we're going to make an API request to get the NBA games during that day.
+//     // console.log("Date: " + formatDate(i));
+//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(date) + '?key=c55e28baecdc43b59a80d237643bde43')
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (result) {
+//             // Updates the code
+//         result.forEach(function (entry) {
+//             //console.log(entry.AwayTeam);
+//             //console.log(entry.HomeTeam);
+//             // console.log(entry);
+//             // console.log(entry.AwayTeam)
+//             let schedule = Object.values(entry);
+//             // console.log(schedule)
+//             // console.log(schedule[6])
+//             // console.log(schedule[7])
+//             // console.log(day1)
+//         });
+//     });
+// });
