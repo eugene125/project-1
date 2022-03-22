@@ -8,7 +8,7 @@ function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
 
-    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
+    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ').replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
     console.log(conferencePg2);
     divisionPg2 = searchParamsArray[2].split('=').pop();
