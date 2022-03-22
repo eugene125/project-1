@@ -175,13 +175,36 @@ function formCalendar(){
 
 }
 
+function getNextDay(date) {
+    let nextDay = new Date(date);
+    console.log(nextDay);
+    nextDay.setDate(nextDay.getDate() + 1);
+    return nextDay;
+}
 
+// // This function reformats the date that the API recognizes
+function formatDate(date) {
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    return year + "-" + monthNames[month] + "-" + (day);
+}
+  
+// The 6 days we have to get the date for
+let day1 = new Date();
+let day2 = getNextDay(day1);
+let day3 = getNextDay(day2);
+let day4 = getNextDay(day3);
+let day5 = getNextDay(day4);
+let day6 = getNextDay(day5);
 
 // Create a list of the days
 let dates = [day1,day2,day3,day4,day5,day6]  
 // console.log(dates);
 
-// For each date we're going to make an API request to get the NBA game for specific day
+// // For each date we're going to make an API request to get the NBA game for specific day
 function only1day (day1) {
     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
         .then(function (response) {

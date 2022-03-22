@@ -2,7 +2,6 @@ let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
 let bigTable = $('#table')
 let tableBody = $('#table-body')
 var teamAbbr3 = ""
-
 console.log(conferencePg2);
 
 //Here we are taking the information that we appended to the URL and splitting it into useable data
@@ -73,6 +72,9 @@ function fetchSeasonStats(){ //Here I created a function to dynamically attach t
             break;
         case "SAS":
             teamAbbr = "SA"
+            break;
+        case "PHX":
+            teamAbbr = "PHO"
             break;
         default:
             teamAbbr = teamAbbr3
@@ -152,4 +154,65 @@ function fetchSeasonStats(){ //Here I created a function to dynamically attach t
         })
     }
 
+
 fetchSeasonStats()
+
+
+
+teamToFilterFor = teamAbbr;     /* Sample team to filter for */
+
+fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14ea8a033b1cf8db75bb6")
+    .then(function (response) {
+        return response.json();
+    }).then(function (gamesArray) {
+        // `gamesArray` contains an array of thousands
+        // of elements that we need to filter by team
+        // name first.
+        gamesArray.forEach(function (game) {
+            homeTeam = game["HomeTeam"];
+            awayTeam = game["AwayTeam"];
+            gameDate = new Date(game["Day"]);
+            today = new Date();
+
+            if ((homeTeam === teamToFilterFor || awayTeam === teamToFilterFor) && gameDate >= today) {
+                // TODO: Update the HTML page to add the game `game`
+                //  onto the page.
+                console.log(homeTeam + " vs " + awayTeam + " on " + gameDate);
+            }
+        });
+});
+
+
+/* Sample team to filter for */
+
+fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=c55e28baecdc43b59a80d237643bde43")
+    .then(function (response) {
+        return response.json();
+    }).then(function (teamsArray) {
+        
+        console.log(teamsArray);
+
+    teamsArray.forEach(function(team){
+        logo = team["WikipediaLogoUrl"];
+        homeTeam = team["Key"];
+        primColor= team["PrimaryColor"];
+        secColor= team["SecondaryColor"];
+        if (homeTeam === teamToFilterFor) {
+            let teamlogo = document.getElementById('teamLogo');
+            teamlogo.src=logo;
+            let jamboTron = document.getElementById('jamboColor');
+            console.log("this is"+ jamboTron);
+            jamboTron.style.backgroundColor = "#"+ primColor;
+            //document.body.style.backgroundColor="#" + secColor;
+            
+        }
+
+/*         if(secColor === "000000"){
+            document.body.style.color="green";
+
+        }
+
+
+        console.log("team name"+homeTeam+"tihs color"+secColor); */
+    })
+});
