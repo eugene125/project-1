@@ -12,7 +12,7 @@
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <h3 class="navbar-brand" href="#">NBA Fandom</h3>
+      <a class="navbar-brand" href="./index.html">NBA Fandom</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -70,7 +70,28 @@
       </div>
     </nav>
 
-    <div id="playerTable1"></div>
+    <!-- <div id="playerTable1"> -->
+      <table id="tablePg1" class="table hide">
+        <thead>
+          <tr> 
+            <th scope="col">Player Name</th>
+            <th scope="col">Games</th>
+            <th scope="col">Points</th>
+            <th scope="col">AST</th>
+            <th scope="col">REB</th>
+            <th scope="col">STL</th>
+            <th scope="col">FG %</th>
+            <th scope="col">3 PT %</th>
+            <th scope="col">FT %</th>
+            <th scope="col">TO</th>
+            <th scope="col">PF</th>
+          </tr>
+        </thead>
+        <tbody id="table-bodyPg1"> </tbody>
+      </table>
+    <!-- </div> -->
+
+    <input id="reset"class="btn btn-primary hide" type="reset" value="Reset">
 
       <div class="jumbotron jumbotron-fluid jumbo">
         <div class="container">
