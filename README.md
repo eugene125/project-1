@@ -4,7 +4,7 @@
 
 ## Overview
 
-For Project 1, we decided to create a NBA Fandom Page, where you can easily see the stats related to your favorite teams and players as well as the upcoming games for the week. In order to do this, we used several different API libraries. Please seen the Credits for the full list.
+For Project 1, we decided to create a NBA Fandom Page, where you can easily see the stats related to your favorite teams and players as well as the upcoming games for the week. In order to do this, we used several different API libraries. Please see the Credits for the full list.
 
 
 ## Table of Contents
@@ -25,3 +25,4 @@ For Project 1, we decided to create a NBA Fandom Page, where you can easily see 
 Eugene Ahn, Craig Leslie, Alyssa Rodriguez and Tadesse Tilahun
 
 ## Credits
+Moment.JS
