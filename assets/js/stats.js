@@ -1,4 +1,4 @@
-let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
+let apiKey2 = "key=52f58b6c75b1451698114fb10f4d07f0"
 let bigTable = $('#table')
 let tableBody = $('#table-body')
 var teamAbbr3 = ""
@@ -84,7 +84,7 @@ function fetchSeasonStats(){ //Here I created a function to dynamically attach t
     }
                         
         //I then created a new URL              
-    let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey
+    let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey2
 
 
 
@@ -164,7 +164,7 @@ fetchSeasonStats()
 
 teamToFilterFor = teamAbbr;     /* Sample team to filter for */
 
-fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14ea8a033b1cf8db75bb6")
+fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=52f58b6c75b1451698114fb10f4d07f0")
     .then(function (response) {
         return response.json();
     }).then(function (gamesArray) {
@@ -186,7 +186,7 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14
 
 /* Sample team to filter for */
 
-fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=c55e28baecdc43b59a80d237643bde43")
+fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=52f58b6c75b1451698114fb10f4d07f0")
     .then(function (response) {
         return response.json();
     }).then(function (teamsArray) {

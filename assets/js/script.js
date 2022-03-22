@@ -1,4 +1,4 @@
-// let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
+let apiKey = "?key=52f58b6c75b1451698114fb10f4d07f0"
 // Note to self, we need to change the URL's in the 300 range because the API key is hardcoded into the URL. This technically isn't an issue so may not even be that important
 let teamAbbr = "";
 let conferencePg2 = "";
@@ -207,7 +207,7 @@ let dates = [day1,day2,day3,day4,day5,day6]
 
 // // For each date we're going to make an API request to get the NBA game for specific day
 function only1day (day1) {
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + apiKey)
         .then(function (response) {
             return response.json();
         })
@@ -226,7 +226,7 @@ function only1day (day1) {
 only1day(day1);
 
 function only2day (day2) {
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day2) + '?key=c55e28baecdc43b59a80d237643bde43')
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day2) + apiKey)
         .then(function (response) {
             return response.json();
         })
@@ -245,7 +245,7 @@ function only2day (day2) {
 only2day(day2);
 
 function only3day(day3) {
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day3) + '?key=c55e28baecdc43b59a80d237643bde43')
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day3) + apiKey)
         .then(function (response) {
             return response.json();
         })
@@ -264,7 +264,7 @@ function only3day(day3) {
 only3day(day3);
 
 function only4day (day4) {
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day4) + '?key=c55e28baecdc43b59a80d237643bde43')
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day4) + apiKey)
         .then(function (response) {
             return response.json();
         })
@@ -283,7 +283,7 @@ function only4day (day4) {
 only4day(day4);
 
 function only5day (day5) {
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day5) + '?key=c55e28baecdc43b59a80d237643bde43')
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day5) + apiKey)
         .then(function (response) {
             return response.json();
         })
@@ -302,7 +302,7 @@ function only5day (day5) {
 only5day(day5);
 
 function only6day (day6) {
-    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day6) + '?key=c55e28baecdc43b59a80d237643bde43')
+    fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day6) + apiKey)
         .then(function (response) {
             return response.json();
         })
