@@ -168,9 +168,7 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14
     .then(function (response) {
         return response.json();
     }).then(function (gamesArray) {
-        // `gamesArray` contains an array of thousands
-        // of elements that we need to filter by team
-        // name first.
+        // `gamesArray` contains an array of thousands of elements that we need to filter by team name first.
         gamesArray.forEach(function (game) {
             homeTeam = game["HomeTeam"];
             awayTeam = game["AwayTeam"];
