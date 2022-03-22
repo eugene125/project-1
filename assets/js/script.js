@@ -49,6 +49,7 @@ $("#search-submit").on("click", function searchPlayer(event){
     let playerSearchFetchUrl = playerSearchUrl + userParam;
     console.log(playerName);
 
+    //Here I created a function to save the user input to local storage.
     function saveData(){
         localStorage.setItem("userInputofPlayerName", playerName)
     }

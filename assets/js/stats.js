@@ -131,7 +131,7 @@ function fetchSeasonStats(){ //Here I created a function to dynamically attach t
                 threeAtt.textContent = playersByTeam[i].ThreePointersAttempted
 
                 let threePerc = document.createElement('td');
-                threePerc.textContent = playersByTeam[i].ThreePointersAttempted
+                threePerc.textContent = playersByTeam[i].ThreePointersPercentage
                 
 
                 let tOver = document.createElement('td');
