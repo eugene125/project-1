@@ -250,7 +250,7 @@ function only3day(day3) {
             return response.json();
         })
         .then(function (data) {
-        // Udates the code
+        // Updates the code
         data.forEach(function (entry) {
             let away = entry.AwayTeam
             let home = entry.HomeTeam

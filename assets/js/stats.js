@@ -206,13 +206,5 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=c55e28baecdc43b59a
             //document.body.style.backgroundColor="#" + secColor;
             
         }
-
-/*         if(secColor === "000000"){
-            document.body.style.color="green";
-
-        }
-
-
-        console.log("team name"+homeTeam+"tihs color"+secColor); */
     })
 });
