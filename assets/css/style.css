@@ -26,8 +26,21 @@ img{
 .jumbo{
     background-color: black;
     color: white;
+    /* text-align: center; */
 }
 
 .center{
     text-align: center;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.showTable{
+    /* display: flex; */
 }
