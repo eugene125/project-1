@@ -14,9 +14,11 @@ $(".dropdown-item").on("click", function teamSearch(){
         method: 'GET',
         redirect: 'follow'
     };
+    //We then set the variables for the new URL
     let teamFetchUrl = "https://www.balldontlie.io/api/v1/teams/";
     let appendedTeamFetchUrl = teamFetchUrl + nbaId;
     
+    //and put the New URL into our code to fetch
     fetch(appendedTeamFetchUrl, requestOptions)
         .then(function (response) {
             return response.json();
@@ -24,11 +26,13 @@ $(".dropdown-item").on("click", function teamSearch(){
         .then(function (result) {
             let teamData = Object.values(result);
             
+            //Here we are setting the data values that we will need for our second HTML page
             teamAbbr3 = teamData[1];
             conferencePg2 = teamData[3];
             divisionPg2 = teamData[4];
             teamSpecific = teamData[5];
 
+            //We are putting that data in the URL so that it is easy to call on later.
             location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2+'&teamAbbr3='+teamAbbr3);
             // // teamHeader(teamSpecific, conferencePg2, divisionPg2);    
         })        
@@ -44,6 +48,11 @@ $("#search-submit").on("click", function searchPlayer(event){
     let userParam = jQuery.param({ "": playerName});
     let playerSearchFetchUrl = playerSearchUrl + userParam;
     console.log(playerName);
+
+    function saveData(){
+        playerName = 
+    }
+
 
     fetch(playerSearchFetchUrl)
         .then(function (response) {
@@ -67,7 +76,7 @@ $("#search-submit").on("click", function searchPlayer(event){
             .then(function (result) {
                 let playerStats = Object.values(result);
                 
-                // Set variables equal to the following stats so we can append them when searching for a player?
+                // Set variables equal to the following stats so we can append them when searching for a player
                 console.log(playerStats);
 
                 var gamesPlayer = playerStats[0][0].games_played;
@@ -82,45 +91,6 @@ $("#search-submit").on("click", function searchPlayer(event){
                 var pfPlayer = playerStats[0][0].pf;
 
                 
-                // var playerStatDiv = document.getElementById('playerTable1')
-                // var tablePg1 = document.createElement('table') //create table
-                // tablePg1.classList.add('table')
-                // var tableHead = document.createElement('thead') //creates head for the table
-                // var tableRowHead = document.createElement('tr')
-                
-                // var cat1 = document.createElement('th') //creates categories
-                // cat1.setAttribute('scope', 'col')
-                // cat1.textContent = 'Name' //text for player becomes user input (figure out capitalization)
-                // var cat2 = document.createElement('th')
-                // cat2.setAttribute('scope', 'col')
-                // cat2.textContent = 'Games'
-                // var cat3 = document.createElement('th')
-                // cat3.setAttribute('scope', 'col')
-                // cat3.textContent = 'Points'
-                // var cat4 = document.createElement('th')
-                // cat4.setAttribute('scope', 'col')
-                // cat4.textContent = 'Ast'
-                // var cat5 = document.createElement('th')
-                // cat5.setAttribute('scope', 'col')
-                // cat5.textContent = 'Reb'
-                // var cat6 = document.createElement('th')
-                // cat6.setAttribute('scope', 'col')
-                // cat6.textContent = 'Stl'
-                // var cat7 = document.createElement('th')
-                // cat7.setAttribute('scope', 'col')
-                // cat7.textContent = 'FG %'
-                // var cat8 = document.createElement('th')
-                // cat8.setAttribute('scope', 'col')
-                // cat8.textContent = '3 PT %'
-                // var cat9 = document.createElement('th')
-                // cat9.setAttribute('scope', 'col')
-                // cat9.textContent = 'FT %'
-                // var cat10 = document.createElement('th')
-                // cat10.setAttribute('scope', 'col')
-                // cat10.textContent = 'TO'
-                // var cat11 = document.createElement('th')
-                // cat1.setAttribute('scope', 'col')
-                // cat11.textContent = 'PF'
 
                 var tableTable = document.getElementById('tablePg1')
                 var tBody = document.getElementById('table-bodyPg1')  //new
@@ -150,20 +120,6 @@ $("#search-submit").on("click", function searchPlayer(event){
                 var dataPf = document.createElement('td')
                 dataPf.textContent = pfPlayer
 
-                //append table to div
-                // playerStatDiv.append(tablePg1)
-                //append table head to table
-                // tablePg1.append(tableHead)
-                // append tablerow to tablehead
-                // tableHead.append(tableRowHead)
-                //append content to tablerow
-                // tableRowHead.append(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9,cat10,cat11)
-                //append tablebody to table
-                // tablePg1.append(tablePg1Body)
-                //append tablerow to tablebody
-                // tablePg1Body.append(row2)
-                //append data to table row
-                // row2.append(dataName,dataGame,dataPoints,dataAst,dataReb,dataStl,dataFgPerc,dataThreePerc,dataFtPerc,dataTo,dataPf)
               
                 row2.getAttribute('scope', 'row')
                 tBody.appendChild(row2) //new
@@ -216,33 +172,10 @@ function formCalendar(){
         console.log(daysArr)
     } getDays()
 
-//     function getSchedule(){
-//         // This function will call the array from the previous function
-//         // It will then format the dates into a month-day-year format
-//         // Then it will send a fetch request with the formatted date appended to the URL
-//         // Finally, it will grab specific data from the fetch and display it on the cards that are on the webpage
-//     }
+
 }
 
-// // For each date we're going to make an API request to get the NBA game for specific day
-// function only1day (day1) {
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards[0].appendChild(test)
-//         });
-//     });
-// }
-// only1day(day1);
+
 
 // Create a list of the days
 let dates = [day1,day2,day3,day4,day5,day6]  
@@ -362,53 +295,3 @@ function only6day (day6) {
     });
 }
 only6day(day6);
-
-// //This is a test for loop, I tried to get these cards to display in a for loop, but kept throwing error on the appendChild line. We may want to see if we can get it to work in the loop. But it works great like it is.
-
-// for (i=0; i<cards.length;i++){
-//     // For each date we're going to make an API request to get the NBA game for specific day
-//     // console.log("Date: " + formatDate(dates[i]));
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(dates[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             // console.log(entry.AwayTeam);
-//             // console.log(entry.HomeTeam);
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             // console.log(entry);
-//             // console.log(entry.AwayTeam)
-//             let schedule = Object.values(entry);
-//             // console.log(schedule)
-//             // console.log(schedule[6])
-//             // console.log(schedule[7])
-//             // console.log(day1)
-//         });
-//     });
-// }
-
-// // dates.forEach(function (date) {
-// //     // For each date we're going to make an API request to get the NBA games during that day.
-// //     // console.log("Date: " + formatDate(i));
-// //     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(date) + '?key=c55e28baecdc43b59a80d237643bde43')
-// //         .then(function (response) {
-// //             return response.json();
-// //         })
-// //         .then(function (result) {
-// //             // Updates the code
-// //         result.forEach(function (entry) {
-// //             //console.log(entry.AwayTeam);
-// //             //console.log(entry.HomeTeam);
-// //             // console.log(entry);
-// //             // console.log(entry.AwayTeam)
-// //             let schedule = Object.values(entry);
-// //             // console.log(schedule)
-// //             // console.log(schedule[6])
-// //             // console.log(schedule[7])
-// //             // console.log(day1)
-// //         });
-// //     });
-// // });

@@ -5,6 +5,7 @@ var teamAbbr3 = ""
 
 console.log(conferencePg2);
 
+//Here we are taking the information that we appended to the URL and splitting it into useable data
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
@@ -55,7 +56,7 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     teamUl.appendChild(teamLi2);
 }
 
-// Don't know exactly where this needs to be implemented, but this is what allows us to grab all the players part of a team and gather their season stats
+//this is what allows us to grab all the players part of a team and gather their season stats
 function fetchSeasonStats(){ //Here I created a function to dynamically attach the player stats by team
     let seasonStatsUrl = "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/"
     
@@ -77,7 +78,7 @@ function fetchSeasonStats(){ //Here I created a function to dynamically attach t
             teamAbbr = teamAbbr3
     }
                         
-        //I then created a new                 
+        //I then created a new URL              
     let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey
 
 
@@ -93,7 +94,7 @@ function fetchSeasonStats(){ //Here I created a function to dynamically attach t
             let playersByTeam = result
             console.log(playersByTeam) 
 
-
+            //I then put the information about the team into the a dynamically created table so that we would not need to make a new one for each team
          function displayStats(){
              
             for(var i=0; i<= playersByTeam.length; i++ ){
