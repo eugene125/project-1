@@ -50,9 +50,9 @@ $("#search-submit").on("click", function searchPlayer(event){
     console.log(playerName);
 
     function saveData(){
-        playerName = 
+        localStorage.setItem("userInputofPlayerName", playerName)
     }
-
+    saveData()
 
     fetch(playerSearchFetchUrl)
         .then(function (response) {
