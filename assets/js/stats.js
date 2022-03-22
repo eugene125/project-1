@@ -1,21 +1,21 @@
 // Global variables
-let apiKey2 = "key=52f58b6c75b1451698114fb10f4d07f0"
-let bigTable = $('#table')
-let tableBody = $('#table-body')
-let teamAbbr3 = ""
+let apiKey2 = "key=52f58b6c75b1451698114fb10f4d07f0";
+let bigTable = $('#table');
+let tableBody = $('#table-body');
+let teamAbbr3 = "";
 
 // Here we are taking the information that we appended to the URL and splitting it into useable data
 function getParams(){
-    var searchParamsArray = document.location.search.split('&')
+    var searchParamsArray = document.location.search.split('&');
 
     teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ').replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
     divisionPg2 = searchParamsArray[2].split('=').pop();
     teamAbbr3 = searchParamsArray[3].split('=').pop();
     
-    teamHeader(teamSpecific, conferencePg2, divisionPg2)
+    teamHeader(teamSpecific, conferencePg2, divisionPg2);
 }
-getParams()
+getParams();
 
 function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     //Declares variable for jumbotron div
@@ -29,9 +29,9 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
 
     // Styling and appending the created elements
     teamHeader.textContent = teamSpecific;
-    teamHeader.classList.add('center')
-    teamUl.classList.add('center')
-    teamUl.classList.add('left')
+    teamHeader.classList.add('center');
+    teamUl.classList.add('center');
+    teamUl.classList.add('left');
     teamLi1.textContent = `Conference: ${conferencePg2}`;
     teamLi2.textContent = `Division: ${divisionPg2}`;
     teamPg2.appendChild(teamHeader);
@@ -64,9 +64,9 @@ function fetchSeasonStats(){
             break;
         default:
             teamAbbr = teamAbbr3
-    }
+    };
 
-    let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey2
+    let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey2;
 
     fetch(seasonStatsFetchUrl)
         .then(function (response) {
@@ -74,10 +74,8 @@ function fetchSeasonStats(){
         })
         .then(function (result) {
             let playersByTeam = result
-
         // The following function creates table elements that certain player stats is appended to
         function displayStats(){
-             
             for(var i=0; i<= playersByTeam.length; i++ ){
                 // Creating elements that are part of the table
                 let tableRow = document.createElement('tr');
@@ -118,9 +116,8 @@ function fetchSeasonStats(){
     .catch(function (error) {
         console.log('error', error);
     })
-}
-
-fetchSeasonStats()
+};
+fetchSeasonStats();
 
 /* Sample team to filter for */
 teamToFilterFor = teamAbbr;
