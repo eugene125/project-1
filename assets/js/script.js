@@ -205,46 +205,44 @@ cardFront()
 // Everything below this line needs a lot of refactoring to condense multiple functions into a single function
 
 function formCalendar(){
-    function getDays(){
-        // This function will get the current day
-        // Use that current day in a loop that will iterate and grab the next five days
-        // Push the six values into an empty array
-    }
+    function getDays() {
+        let now = moment().format("YYYY-MMM-DD")
+        console.log(now);
+        let daysArr = [now, ];
+        for (i=1; i<6; i++){
+            let nextDay = moment(now, "YYYY-MMM-DD").add(i, "days")
+            daysArr.push(nextDay.format("YYYY-MMM-DD"))
+        }
+        console.log(daysArr)
+    } getDays()
 
-    function getSchedule(){
-        // This function will call the array from the previous function
-        // It will then format the dates into a month-day-year format
-        // Then it will send a fetch request with the formatted date appended to the URL
-        // Finally, it will grab specific data from the fetch and display it on the cards that are on the webpage
-    }
+//     function getSchedule(){
+//         // This function will call the array from the previous function
+//         // It will then format the dates into a month-day-year format
+//         // Then it will send a fetch request with the formatted date appended to the URL
+//         // Finally, it will grab specific data from the fetch and display it on the cards that are on the webpage
+//     }
 }
 
-
-
-function getNextDay(date) {
-    let nextDay = new Date(date);
-    console.log(nextDay);
-    nextDay.setDate(nextDay.getDate() + 1);
-    return nextDay;
-}
-
-// This function reformats the date that the API recognizes
-function formatDate(date) {
-    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    let day = date.getDate();
-    let month = date.getMonth();
-    let year = date.getFullYear();
-    return year + "-" + monthNames[month] + "-" + (day);
-}
-  
-// The 6 days we have to get the date for
-let day1 = new Date();
-let day2 = getNextDay(day1);
-let day3 = getNextDay(day2);
-let day4 = getNextDay(day3);
-let day5 = getNextDay(day4);
-let day6 = getNextDay(day5);
+// // For each date we're going to make an API request to get the NBA game for specific day
+// function only1day (day1) {
+//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//         // Udates the code
+//         data.forEach(function (entry) {
+//             let away = entry.AwayTeam
+//             let home = entry.HomeTeam
+//             let test = document.createElement('p')
+//             test.classList.add('center')
+//             test.innerHTML = `${away} vs ${home}`
+//             cards[0].appendChild(test)
+//         });
+//     });
+// }
+// only1day(day1);
 
 // Create a list of the days
 let dates = [day1,day2,day3,day4,day5,day6]  
@@ -413,38 +411,3 @@ only6day(day6);
 // //         });
 // //     });
 // // });
-  
-  
-// // gets data of teams standings
-// //    function teams(){
-// //     fetch("https://api.sportsdata.io/v3/nba/scores/json/Standings/2022?key=c55e28baecdc43b59a80d237643bde43")
-// //     .then(response => response.json())
-// //     .then(result => console.log(result))
-// //     .catch(error => console.log('error', error));
-// //      document.getElementById("p2").innerText += entry.AwayTeam + " vs. " + entry.HomeTeam + "\n\n";
-// //   }
-  
-// //   teams();
-  
-  
-//   //gets each player on a team
-// //   function players_by_team(){
-// //     fetch("https://api.sportsdata.io/v3/nba/scores/json/Players/DAL?key=c55e28baecdc43b59a80d237643bde43")
-// //     .then(response => response.json())
-// //     .then(result => console.log(result))
-// //     .catch(error => console.log('error', error));
-  
-// //   }
-  
-// //   players_by_team();
-  
-// //   // gets player data by player ID which we get from the player_by_team function
-// //   function player_stat(){
-// //     fetch("https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2022?key=c55e28baecdc43b59a80d237643bde43")
-// //     .then(response => response.json())
-// //     .then(result => console.log(result))
-// //     .catch(error => console.log('error', error));
-  
-// //   }
-  
-// //   player_stat();
