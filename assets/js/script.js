@@ -1,5 +1,4 @@
 // let apiKey = "key=b6621a5a4f174d1fa154420458cf0a07"
-// Note to self, we need to change the URL's in the 300 range because the API key is hardcoded into the URL. This technically isn't an issue so may not even be that important
 let teamAbbr = "";
 let conferencePg2 = "";
 let divisionPg2 = "";
@@ -34,7 +33,6 @@ $(".dropdown-item").on("click", function teamSearch(){
 
             //We are putting that data in the URL so that it is easy to call on later.
             location.assign('./page2.html?q='+teamSpecific+'&con2='+conferencePg2+'&div2='+divisionPg2+'&teamAbbr3='+teamAbbr3);
-            // // teamHeader(teamSpecific, conferencePg2, divisionPg2);    
         })        
         .catch(function (error) {console.log('error', error);  
     });
@@ -68,7 +66,6 @@ $("#search-submit").on("click", function searchPlayer(event){
             let playerAveragesUrl = "https://www.balldontlie.io/api/v1/season_averages?player_ids[]"
             let playerAveragesParam = jQuery.param({ "": player_ids})
             let playerAveragesFetchUrl = playerAveragesUrl + playerAveragesParam;
-            // console.log(playerAveragesFetchUrl)
 
             fetch(playerAveragesFetchUrl)
             .then(function (response) {
@@ -78,7 +75,6 @@ $("#search-submit").on("click", function searchPlayer(event){
                 let playerStats = Object.values(result);
                 
                 // Set variables equal to the following stats so we can append them when searching for a player
-                console.log(playerStats);
 
                 var gamesPlayer = playerStats[0][0].games_played;
                 var pointsPlayer = playerStats[0][0].pts;
@@ -91,7 +87,6 @@ $("#search-submit").on("click", function searchPlayer(event){
                 var toPlayer = playerStats[0][0].turnover;
                 var pfPlayer = playerStats[0][0].pf;
 
-                
 
                 var tableTable = document.getElementById('tablePg1')
                 var tBody = document.getElementById('table-bodyPg1')  //new
@@ -120,25 +115,22 @@ $("#search-submit").on("click", function searchPlayer(event){
                 dataTo.textContent = toPlayer
                 var dataPf = document.createElement('td')
                 dataPf.textContent = pfPlayer
-
               
                 row2.getAttribute('scope', 'row')
                 tBody.appendChild(row2) //new
                 row2.append(dataName,dataGame,dataPoints,dataAst,dataReb,dataStl,dataFgPerc,dataThreePerc,dataFtPerc,dataTo,dataPf) //new
                 tableTable.classList.remove('hide')
 
-
                 button1.classList.add('show') //reset button appears
-
         })
     })
 })
 
 $('#reset').on('click', function(event){
-    document.getElementById('tablePg1').textContent = ''  // removes stats table
+    // removes stats table
+    document.getElementById('tablePg1').textContent = ''
     button1.classList.remove('show')
 })
-
 
 // This function dynamically displays information onto our cards
 function cardFront(){  
@@ -158,65 +150,6 @@ function cardFront(){
 }
 cardFront()
 
-// function formCalendar(){
-    
-//     let now = moment().format("YYYY-MMM-DD")
-//     let daysArr = [now, ];
-    
-//     function getDays() {
-//         // console.log(now);
-//         for (i=1; i<6; i++){
-//             let nextDay = moment(now, "YYYY-MMM-DD").add(i, "days")
-//             daysArr.push(nextDay.format("YYYY-MMM-DD"))
-//         }
-//         // console.log(daysArr)
-// } getDays()
-
-// // console.log(daysArr)
-// // we want a function that initializes all the things we want
-//     // get data for today's game and render that card
-//     // get data for tomorrow game and render
-//     // get data for tomorrow++ etc
-
-//     //function renderGameForDay (games, day){
-// // returns html to page
-//     //}
-
-//     // function getGameData (whichDay) {
-//         // does the fetch
-//         //then takes that days game data and invokes the renderGameForDay
-//     //}
-
-//     function getSchedule(){
-//         // getGameData(moment().now());
-//         // getGameData(now + 1day)
-//         // getGameData(now + 2 days)
-//         // getGameData(now+3days)
-//         // getGameDay();
-    
-//         for (i=0; i<cards.length;i++){
-//         fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + (daysArr[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
-//             .then(function (response) {
-//                 return response.json();
-//             })
-//             .then(function (data) {
-//                 console.log(data)
-//             data.forEach(function (entry) {
-//                 // console.log(entry.AwayTeam);
-//                 // console.log(entry.HomeTeam);
-//                 let away = entry.AwayTeam
-//                 let home = entry.HomeTeam
-//                 console.log(entry);
-//                 // console.log(cards[0])
-//                 let appendP = $("<p>", {id: "pContainer"}).appendTo(".card-body")
-//                 appendP.css('text-align', 'center')
-//                 appendP.text(`${away} vs ${home}`)
-//                 });
-//             });
-//         }
-//     }getSchedule()
-// }formCalendar()
-
 function getNextDay(date) {
     let nextDay = new Date(date);
     console.log(nextDay);
@@ -224,7 +157,7 @@ function getNextDay(date) {
     return nextDay;
 }
 
-// // This function reformats the date that the API recognizes
+// This function reformats the date that the API recognizes
 function formatDate(date) {
     const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
         "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
@@ -252,7 +185,6 @@ function only1day (day1) {
             return response.json();
         })
         .then(function (data) {
-        // Udates the code
         data.forEach(function (entry) {
             let away = entry.AwayTeam
             let home = entry.HomeTeam
@@ -271,7 +203,6 @@ function only2day (day2) {
             return response.json();
         })
         .then(function (data) {
-        // Udates the code
         data.forEach(function (entry) {
             let away = entry.AwayTeam
             let home = entry.HomeTeam
@@ -309,7 +240,6 @@ function only4day (day4) {
             return response.json();
         })
         .then(function (data) {
-        // Udates the code
         data.forEach(function (entry) {
             let away = entry.AwayTeam
             let home = entry.HomeTeam
@@ -328,7 +258,6 @@ function only5day (day5) {
             return response.json();
         })
         .then(function (data) {
-        // Udates the code
         data.forEach(function (entry) {
             let away = entry.AwayTeam
             let home = entry.HomeTeam
@@ -347,7 +276,6 @@ function only6day (day6) {
             return response.json();
         })
         .then(function (data) {
-        // Udates the code
         data.forEach(function (entry) {
             let away = entry.AwayTeam
             let home = entry.HomeTeam

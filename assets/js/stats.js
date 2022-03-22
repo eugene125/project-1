@@ -177,21 +177,16 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14
             if ((homeTeam === teamToFilterFor || awayTeam === teamToFilterFor) && gameDate >= today) {
                 // TODO: Update the HTML page to add the game `game` onto the page.
                 console.log(homeTeam + " vs " + awayTeam + " on " + gameDate);
-            }
-        });
+        }
+    });
 });
-
-
-/* Sample team to filter for */
 
 fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=c55e28baecdc43b59a80d237643bde43")
     .then(function (response) {
         return response.json();
-    }).then(function (teamsArray) {
-        
-        console.log(teamsArray);
-
-    teamsArray.forEach(function(team){
+    })
+    .then(function (teamsArray) {
+        teamsArray.forEach(function(team){
         logo = team["WikipediaLogoUrl"];
         homeTeam = team["Key"];
         primColor= team["PrimaryColor"];
@@ -202,8 +197,6 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=c55e28baecdc43b59a
             let jamboTron = document.getElementById('jamboColor');
             console.log("this is"+ jamboTron);
             jamboTron.style.backgroundColor = "#"+ primColor;
-            //document.body.style.backgroundColor="#" + secColor;
-            
         }
     })
 });
