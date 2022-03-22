@@ -15,7 +15,6 @@ function getParams(){
     teamAbbr3 = searchParamsArray[3].split('=').pop();
     
     teamHeader(teamSpecific, conferencePg2, divisionPg2)
-    // return(teamSpecific, conferencePg2, divisionPg2);
 }
 getParams()
 
@@ -163,9 +162,7 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14
     .then(function (response) {
         return response.json();
     }).then(function (gamesArray) {
-        // `gamesArray` contains an array of thousands
-        // of elements that we need to filter by team
-        // name first.
+        // `gamesArray` contains an array of thousands of elements that we need to filter by team name first.
         gamesArray.forEach(function (game) {
             homeTeam = game["HomeTeam"];
             awayTeam = game["AwayTeam"];
@@ -173,8 +170,7 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=dcb728f286f14
             today = new Date();
 
             if ((homeTeam === teamToFilterFor || awayTeam === teamToFilterFor) && gameDate >= today) {
-                // TODO: Update the HTML page to add the game `game`
-                //  onto the page.
+                // TODO: Update the HTML page to add the game `game` onto the page.
                 console.log(homeTeam + " vs " + awayTeam + " on " + gameDate);
             }
         });

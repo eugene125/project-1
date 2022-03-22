@@ -201,28 +201,64 @@ function cardFront(){
 }
 cardFront()
 
-// Game Schedules 
-// Everything below this line needs a lot of refactoring to condense multiple functions into a single function
+// function formCalendar(){
+    
+//     let now = moment().format("YYYY-MMM-DD")
+//     let daysArr = [now, ];
+    
+//     function getDays() {
+//         // console.log(now);
+//         for (i=1; i<6; i++){
+//             let nextDay = moment(now, "YYYY-MMM-DD").add(i, "days")
+//             daysArr.push(nextDay.format("YYYY-MMM-DD"))
+//         }
+//         // console.log(daysArr)
+// } getDays()
 
-function formCalendar(){
-    function getDays() {
-        let now = moment().format("YYYY-MMM-DD")
-        console.log(now);
-        let daysArr = [now, ];
-        for (i=1; i<6; i++){
-            let nextDay = moment(now, "YYYY-MMM-DD").add(i, "days")
-            daysArr.push(nextDay.format("YYYY-MMM-DD"))
-        }
-        console.log(daysArr)
-    } getDays()
+// // console.log(daysArr)
+// // we want a function that initializes all the things we want
+//     // get data for today's game and render that card
+//     // get data for tomorrow game and render
+//     // get data for tomorrow++ etc
+
+//     //function renderGameForDay (games, day){
+// // returns html to page
+//     //}
+
+//     // function getGameData (whichDay) {
+//         // does the fetch
+//         //then takes that days game data and invokes the renderGameForDay
+//     //}
 
 //     function getSchedule(){
-//         // This function will call the array from the previous function
-//         // It will then format the dates into a month-day-year format
-//         // Then it will send a fetch request with the formatted date appended to the URL
-//         // Finally, it will grab specific data from the fetch and display it on the cards that are on the webpage
-//     }
-}
+//         // getGameData(moment().now());
+//         // getGameData(now + 1day)
+//         // getGameData(now + 2 days)
+//         // getGameData(now+3days)
+//         // getGameDay();
+    
+//         for (i=0; i<cards.length;i++){
+//         fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + (daysArr[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
+//             .then(function (response) {
+//                 return response.json();
+//             })
+//             .then(function (data) {
+//                 console.log(data)
+//             data.forEach(function (entry) {
+//                 // console.log(entry.AwayTeam);
+//                 // console.log(entry.HomeTeam);
+//                 let away = entry.AwayTeam
+//                 let home = entry.HomeTeam
+//                 console.log(entry);
+//                 // console.log(cards[0])
+//                 let appendP = $("<p>", {id: "pContainer"}).appendTo(".card-body")
+//                 appendP.css('text-align', 'center')
+//                 appendP.text(`${away} vs ${home}`)
+//                 });
+//             });
+//         }
+//     }getSchedule()
+// }formCalendar()
 
 function getNextDay(date) {
     let nextDay = new Date(date);
@@ -251,9 +287,8 @@ let day6 = getNextDay(day5);
 
 // Create a list of the days
 let dates = [day1,day2,day3,day4,day5,day6]  
-// console.log(dates);
 
-// // For each date we're going to make an API request to get the NBA game for specific day
+// For each date we're going to make an API request to get the NBA game for specific day
 function only1day (day1) {
     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(day1) + '?key=c55e28baecdc43b59a80d237643bde43')
         .then(function (response) {
@@ -367,52 +402,3 @@ function only6day (day6) {
     });
 }
 only6day(day6);
-
-// //This is a test for loop, I tried to get these cards to display in a for loop, but kept throwing error on the appendChild line. We may want to see if we can get it to work in the loop. But it works great like it is.
-
-// for (i=0; i<cards.length;i++){
-//     // For each date we're going to make an API request to get the NBA game for specific day
-//     // console.log("Date: " + formatDate(dates[i]));
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(dates[i]) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         // Udates the code
-//         data.forEach(function (entry) {
-//             // console.log(entry.AwayTeam);
-//             // console.log(entry.HomeTeam);
-//             let away = entry.AwayTeam
-//             let home = entry.HomeTeam
-//             // console.log(entry);
-//             // console.log(cards[0])
-//             let test = document.createElement('p')
-//             test.classList.add('center')
-//             test.innerHTML = `${away} vs ${home}`
-//             cards.appendChild(test)
-//         });
-//     });
-// }
-
-// dates.forEach(function (date) {
-//     // For each date we're going to make an API request to get the NBA games during that day.
-//     // console.log("Date: " + formatDate(i));
-//     fetch('https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/' + formatDate(date) + '?key=c55e28baecdc43b59a80d237643bde43')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (result) {
-//             // Updates the code
-//         result.forEach(function (entry) {
-//             //console.log(entry.AwayTeam);
-//             //console.log(entry.HomeTeam);
-//             // console.log(entry);
-//             // console.log(entry.AwayTeam)
-//             let schedule = Object.values(entry);
-//             // console.log(schedule)
-//             // console.log(schedule[6])
-//             // console.log(schedule[7])
-//             // console.log(day1)
-//         });
-//     });
-// });
