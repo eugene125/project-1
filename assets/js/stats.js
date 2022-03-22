@@ -4,11 +4,12 @@ let tableBody = $('#table-body')
 var teamAbbr3 = ""
 console.log(conferencePg2);
 
+//Here we are taking the information that we appended to the URL and splitting it into useable data
 function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
 
-    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
+    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ').replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
     console.log(conferencePg2);
     divisionPg2 = searchParamsArray[2].split('=').pop();
@@ -31,16 +32,19 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     //creates h1 content
     let teamHeader = document.createElement('h1');
     teamHeader.textContent = teamSpecific;
+    teamHeader.classList.add('center')
 
     //creates ul
     let teamUl = document.createElement('ul');
+    teamUl.classList.add('center')
+    teamUl.classList.add('left')
 
     //creates Li
-    let teamLi1 = document.createElement('li');
+    let teamLi1 = document.createElement('p');
     teamLi1.textContent = `Conference: ${conferencePg2}`;
 
     //creates Li
-    let teamLi2 = document.createElement('li');
+    let teamLi2 = document.createElement('p');
     teamLi2.textContent = `Division: ${divisionPg2}`;
 
     //appends h1
@@ -53,10 +57,11 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     teamUl.appendChild(teamLi2);
 }
 
-// Don't know exactly where this needs to be implemented, but this is what allows us to grab all the players part of a team and gather their season stats
-function fetchSeasonStats(){
+//this is what allows us to grab all the players part of a team and gather their season stats
+function fetchSeasonStats(){ //Here I created a function to dynamically attach the player stats by team
     let seasonStatsUrl = "https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByTeam/2022/"
     
+    //Due to API limitations, some of the teams are displayed by two variables. So I created a switch case to hold the new variables without setting each one individually
     switch (teamAbbr3){
         case "GSW":
             teamAbbr = "GS"
@@ -77,7 +82,7 @@ function fetchSeasonStats(){
             teamAbbr = teamAbbr3
     }
                         
-                        
+        //I then created a new URL              
     let seasonStatsFetchUrl = seasonStatsUrl + teamAbbr + "?" + apiKey
 
 
@@ -93,7 +98,7 @@ function fetchSeasonStats(){
             let playersByTeam = result
             console.log(playersByTeam) 
 
-
+            //I then put the information about the team into the a dynamically created table so that we would not need to make a new one for each team
          function displayStats(){
              
             for(var i=0; i<= playersByTeam.length; i++ ){
@@ -128,7 +133,7 @@ function fetchSeasonStats(){
                 threeAtt.textContent = playersByTeam[i].ThreePointersAttempted
 
                 let threePerc = document.createElement('td');
-                threePerc.textContent = playersByTeam[i].ThreePointersAttempted
+                threePerc.textContent = playersByTeam[i].ThreePointersPercentage
                 
 
                 let tOver = document.createElement('td');
@@ -200,13 +205,5 @@ fetch("https://api.sportsdata.io/v3/nba/scores/json/teams?key=c55e28baecdc43b59a
             //document.body.style.backgroundColor="#" + secColor;
             
         }
-
-/*         if(secColor === "000000"){
-            document.body.style.color="green";
-
-        }
-
-
-        console.log("team name"+homeTeam+"tihs color"+secColor); */
     })
 });
