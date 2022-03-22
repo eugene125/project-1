@@ -8,7 +8,7 @@ function getParams(){
     var searchParamsArray = document.location.search.split('&')
     console.log(searchParamsArray);
 
-    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ');
+    teamSpecific = searchParamsArray[0].split('=').pop().replace('%20', ' ').replace('%20', ' ');
     conferencePg2 = searchParamsArray[1].split('=').pop();
     console.log(conferencePg2);
     divisionPg2 = searchParamsArray[2].split('=').pop();
@@ -32,16 +32,19 @@ function teamHeader(teamSpecific, conferencePg2, divisionPg2){
     //creates h1 content
     let teamHeader = document.createElement('h1');
     teamHeader.textContent = teamSpecific;
+    teamHeader.classList.add('center')
 
     //creates ul
     let teamUl = document.createElement('ul');
+    teamUl.classList.add('center')
+    teamUl.classList.add('left')
 
     //creates Li
-    let teamLi1 = document.createElement('li');
+    let teamLi1 = document.createElement('p');
     teamLi1.textContent = `Conference: ${conferencePg2}`;
 
     //creates Li
-    let teamLi2 = document.createElement('li');
+    let teamLi2 = document.createElement('p');
     teamLi2.textContent = `Division: ${divisionPg2}`;
 
     //appends h1
