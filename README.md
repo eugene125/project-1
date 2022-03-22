@@ -38,7 +38,8 @@ Our stats file dynamically creates a table populated with the players on the tea
 [Please view our final webpage.](https://github.com/eugene125/project-1)
 
 ### Screenshots of our Webpage
-![Here are some screenshots of our final webpage]()
+![Here are some screenshots of our final webpage](./assets/img/index_page.png)
+![Screenshots of our final webpage](./assets/img/page2_example.png)
 
 ### Future Development
 In the future we would like to go back and add more sports to our scope and be able to save your favorite teams so that the user can view them later.
