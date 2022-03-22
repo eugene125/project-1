@@ -41,6 +41,8 @@ img{
     display: block;
 }
 
-.showTable{
-    /* display: flex; */
+#teamLogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
