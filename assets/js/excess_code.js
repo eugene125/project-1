@@ -1,3 +1,6 @@
+// This extra script file contains certain code that we didn't implement at this time. We discussed maybe including them in the future and left it here as a reference to what we were intending to do.
+
+
 /* 
 
 script.js 
@@ -68,8 +71,39 @@ line 159
 
 stats.js
 
+Line 128
+// This function is intended to filter for a specific team's upcoming games
+teamToFilterFor = teamAbbr;
+
+fetch("https://api.sportsdata.io/v3/nba/scores/json/Games/2022?key=52f58b6c75b1451698114fb10f4d07f0")
+    .then(function (response) {
+        return response.json();
+    }).then(function (gamesArray) {
+        // `gamesArray` contains an array of thousands of elements that we need to filter by team name first.
+        gamesArray.forEach(function (game) {
+            homeTeam = game["HomeTeam"];
+            awayTeam = game["AwayTeam"];
+            gameDate = new Date(game["Day"]);
+            today = new Date();
+
+            if ((homeTeam === teamToFilterFor || awayTeam === teamToFilterFor) && gameDate >= today) {
+                console.log(homeTeam + " vs " + awayTeam + " on " + gameDate);
+        }
+    });
+});
 
 
+
+page2.html
+
+line 60
+<!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Player's Full Name
+          
+          
+          " aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
 
 
 */
